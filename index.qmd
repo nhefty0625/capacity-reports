@@ -1,0 +1,9 @@
+---
+title: "Reports"
+---
+
+Welcome to your reports site. Use `/new_project` in Claude Code to create your first analysis project.
+
+## Reports
+
+_No reports yet. Run `/new_project "My Analysis" Description of the analysis` to get started._

@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: docs
+  resources: []
+
+execute:
+  freeze: auto
+
+format:
+  html:
+    embed-resources: true
+    toc: true
+    theme: cosmo
+
+website:
+  title: "My Reports"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home

@@ -1,0 +1,6 @@
+/.quarto/
+*.duckdb
+*.duckdb.wal
+.DS_Store
+.agent-shell/
+PLAN-*.md

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(duckdb *)",
+      "Bash(quarto *)",
+      "Bash(chmod +x *)",
+      "Bash(git *)",
+      "Bash(mkdir *)",
+      "Bash(snow *)",
+      "Bash(cp *)",
+      "Bash(rm -f *.duckdb)",
+      "Bash(ls *)"
+    ]
+  }
+}
