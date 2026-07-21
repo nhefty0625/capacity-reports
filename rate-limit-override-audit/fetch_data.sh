@@ -97,8 +97,41 @@ if [ -f data/product_features.csv ]; then
 fi
 echo ""
 
-# 3. Fetch contract renewal dates from Zuora
-echo "[3/4] Fetching contract renewal dates..."
+# 3. Fetch ARR and agent count
+echo "[3/5] Fetching ARR and agent counts..."
+snow sql -q "
+SELECT
+    o.ACCOUNTID AS INSTANCE_ACCOUNT_ID,
+    o.ARR,
+    p.MAX_AGENTS AS AGENT_COUNT
+FROM FOUNDATIONAL.CAM_ALL_ACCOUNT_OVERVIEW.ALL_ACCOUNTS_OVERVIEW o
+LEFT JOIN FOUNDATIONAL.CUSTOMER.DIM_INSTANCE_PRODUCTS_DAILY_SNAPSHOT p
+    ON o.ACCOUNTID = p.INSTANCE_ACCOUNT_ID
+    AND p.RUN_DATE = CURRENT_DATE()
+    AND p.PRODUCT_NAME = 'support'
+    AND p.PRODUCT_STATE = 'subscribed'
+WHERE o.ACCOUNTID IN (
+    SELECT DISTINCT INSTANCE_ACCOUNT_ID
+    FROM PROPAGATED_PRESENTATION.SRE_CAPACITY.FACT_CAPACITY_AGGREGATED_API_USAGE_DATA_DAILY_SNAPSHOT
+    WHERE API_CALL_DATE >= CURRENT_DATE() - 7
+      AND INSTANCE_ACCOUNT_SUBDOMAIN NOT LIKE 'z3n%'
+      AND (
+        SUBSCRIPTION_RATE_LIMIT > 700
+        OR TICKETS_UPDATE_LIMIT > 100
+        OR PER_TICKET_UPDATES_LIMIT > 30
+        OR INFLIGHT_JOBS_LIMIT > 30
+        OR INCREMENTAL_EXPORTS_LIMIT > 30
+      )
+  )
+" $CONN --format CSV > data/arr_agents.csv
+if [ -f data/arr_agents.csv ]; then
+    line_count=$(wc -l < data/arr_agents.csv)
+    echo "  arr_agents.csv - $line_count rows (including header)"
+fi
+echo ""
+
+# 4. Fetch contract renewal dates from Zuora
+echo "[4/5] Fetching contract renewal dates..."
 snow sql -q "
 SELECT
     m.INSTANCE_ACCOUNT_ID,
@@ -130,8 +163,8 @@ if [ -f data/renewal_dates.csv ]; then
 fi
 echo ""
 
-# 4. Fetch sandbox status for elevated accounts
-echo "[4/4] Fetching sandbox account flags..."
+# 5. Fetch sandbox status for elevated accounts
+echo "[5/5] Fetching sandbox account flags..."
 snow sql -q "
 SELECT DISTINCT
     a.INSTANCE_ACCOUNT_ID,

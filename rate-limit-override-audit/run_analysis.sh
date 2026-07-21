@@ -19,6 +19,7 @@ echo "Checking data files..."
 required_files=(
     "data/elevated_accounts.csv"
     "data/product_features.csv"
+    "data/arr_agents.csv"
     "data/renewal_dates.csv"
     "data/sandbox_accounts.csv"
 )

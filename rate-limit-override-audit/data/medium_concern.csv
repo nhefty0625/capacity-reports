@@ -1,81 +1,81 @@
-INSTANCE_ACCOUNT_ID,INSTANCE_ACCOUNT_SUBDOMAIN,INSTANCE_ACCOUNT_POD_ID,SUBSCRIPTION_RATE_LIMIT,TICKETS_UPDATE_LIMIT,PER_TICKET_UPDATES_LIMIT,INFLIGHT_JOBS_LIMIT,INCREMENTAL_EXPORTS_LIMIT,SUBSCRIPTION_RATE_USED,TICKETS_UPDATE_USED,ERRORS_429_COUNT,has_hvapi,support_plan,CONTRACT_RENEWAL_DATE,is_sandbox,plan_tier,concern_level
-987567,joinhandshake,pod23,2500,300,30,,30,1839,24,0,0,Enterprise,2028-11-30,0,Enterprise (no HVAPI),MEDIUM
-2350998,amberelectric,pod13,2500,300,30,,30,473,14,0,0,Professional,2027-11-18,0,Professional,MEDIUM
-20010022,anagaming,pod20,2500,300,30,,30,376,20,1,0,Enterprise,2026-12-30,0,Enterprise (no HVAPI),MEDIUM
-10006640,cinchhelp,pod29,2500,300,30,30,,395,14,0,0,Enterprise,2028-05-09,0,Enterprise (no HVAPI),MEDIUM
-9597532,outlierorg,pod20,2500,300,30,,30,58,1,0,0,Professional,2026-10-01,0,Professional,MEDIUM
-9805906,trading2129704,pod29,2500,300,30,,30,2500,176,256,0,Enterprise,2027-03-31,0,Enterprise (no HVAPI),MEDIUM
-2003758,hollywoodbets,pod27,2500,300,30,,30,328,57,0,0,Enterprise,2034-12-24,0,Enterprise (no HVAPI),MEDIUM
-9772212,motorway,pod28,2500,300,30,30,30,113,3,0,0,Enterprise,2028-01-01,0,Enterprise (no HVAPI),MEDIUM
-14418507,digibank7473,pod29,2500,300,30,,,706,3,0,0,Enterprise,2028-06-19,0,Enterprise (no HVAPI),MEDIUM
-23478127,bnext8785,pod29,2500,300,30,,30,51,1,0,0,Enterprise,2026-12-16,0,Enterprise (no HVAPI),MEDIUM
-17739235,whpslatergordon,pod29,2500,300,30,,30,131,4,0,0,Enterprise,,0,Enterprise (no HVAPI),MEDIUM
-11569996,imagen-ai,pod29,2500,300,30,,30,412,29,0,0,Professional,2027-01-30,0,Professional,MEDIUM
-20926365,apol528,pod29,2500,300,30,,,30,5,0,0,Professional,2026-07-25,0,Professional,MEDIUM
-24466037,luckyfishza,pod18,2500,300,30,,,19,5,0,0,Enterprise,2027-12-31,0,Enterprise (no HVAPI),MEDIUM
-9197833,accorplushelp,pod25,2500,300,30,30,,581,291,0,0,Enterprise,2027-01-01,0,Enterprise (no HVAPI),MEDIUM
-24447420,pdfguru,pod29,2500,300,30,30,30,206,27,0,0,Enterprise,2027-03-28,0,Enterprise (no HVAPI),MEDIUM
-15620072,jellycat,pod29,2500,300,30,,,28,7,0,0,Enterprise,2026-12-07,0,Enterprise (no HVAPI),MEDIUM
-2457132,shiftsmart,pod20,2500,300,30,30,30,1929,3,0,0,Professional,2026-11-01,0,Professional,MEDIUM
-24096177,backbonecustomerservice,pod28,2500,300,30,30,30,19,3,0,0,Enterprise,2026-08-10,0,Enterprise (no HVAPI),MEDIUM
-9214421,untappd,pod20,2500,300,30,,30,13,1,0,0,Enterprise,2026-12-31,0,Enterprise (no HVAPI),MEDIUM
-11143075,imprintpayments,pod20,2500,300,30,,30,652,51,0,0,Enterprise,2029-05-05,0,Enterprise (no HVAPI),MEDIUM
-874228,homeexchangehelp,pod29,2500,300,30,30,30,430,1,0,0,Enterprise,2027-06-23,0,Enterprise (no HVAPI),MEDIUM
-20636,thoughtworks,pod18,2500,300,30,,,13,2,0,0,Enterprise,2035-09-30,0,Enterprise (no HVAPI),MEDIUM
-16168248,airalohelp,pod29,2500,300,30,30,,399,18,0,0,Enterprise,2027-05-08,0,Enterprise (no HVAPI),MEDIUM
-18609056,aareongroup,pod29,2500,300,30,,30,901,1,0,0,Enterprise,2027-12-31,0,Enterprise (no HVAPI),MEDIUM
-1955318,shoulder,pod27,2500,300,30,,,191,37,0,0,Enterprise,2027-06-30,0,Enterprise (no HVAPI),MEDIUM
-10672988,ckgroup,pod29,2500,300,30,,,2,2,0,0,Enterprise,2027-03-28,0,Enterprise (no HVAPI),MEDIUM
-269012,musement,pod29,2500,300,30,30,,5,3,0,0,Enterprise,2027-02-01,0,Enterprise (no HVAPI),MEDIUM
-453192,onafriq,pod29,2500,300,30,,,3,1,0,0,Enterprise,2030-09-30,0,Enterprise (no HVAPI),MEDIUM
-13717108,amphoralogistics,pod29,2500,300,30,,,27,12,0,0,Professional,2027-05-01,0,Professional,MEDIUM
-20643484,medsenior,pod20,2500,300,30,30,,83,49,0,0,Enterprise,2027-11-29,0,Enterprise (no HVAPI),MEDIUM
-25861074,bonitassupport,pod28,2500,300,,,,1,1,0,0,Enterprise,2030-09-30,0,Enterprise (no HVAPI),MEDIUM
-15250771,bizaway,pod29,2500,300,30,,30,164,3,0,0,Enterprise,2027-11-15,0,Enterprise (no HVAPI),MEDIUM
-620462,jimdo,pod28,2500,300,30,,30,636,1,1,0,Enterprise,2028-06-30,0,Enterprise (no HVAPI),MEDIUM
-13760574,honeywell2721,pod27,2500,100,30,,,123,42,0,0,Professional,2027-06-06,0,Professional,MEDIUM
-162971,miniclip,pod17,2500,100,30,,,350,113,211,0,Enterprise,2027-05-30,0,Enterprise (no HVAPI),MEDIUM
-899047,freshbooks,pod13,2500,100,30,,10,782,8,117,0,Enterprise,2026-10-31,0,Enterprise (no HVAPI),MEDIUM
-598603,kingcare,pod29,2500,100,30,30,10,781,47,2,0,Enterprise,2027-01-31,0,Enterprise (no HVAPI),MEDIUM
-25158261,acertus,pod20,2500,100,30,30,10,251,11,0,0,Enterprise,2027-05-19,0,Enterprise (no HVAPI),MEDIUM
-10113050,sheinpro,pod15,2500,100,30,30,10,237,3,0,0,Professional,2026-08-01,0,Professional,MEDIUM
-9659718,precisionnutrition,pod20,2500,,,,,1,,0,0,Enterprise,2026-12-08,0,Enterprise (no HVAPI),MEDIUM
-958463,quintoandar,pod13,2500,,,,,2,,0,0,Unknown,2026-08-03,0,Unknown,MEDIUM
-10582169,leaderbankit,pod23,2500,,,,,2,,0,0,Enterprise,2029-05-28,0,Enterprise (no HVAPI),MEDIUM
-354735,metro-ace,pod13,2500,,,,30,21,,0,0,Enterprise,2027-05-19,0,Enterprise (no HVAPI),MEDIUM
-184946,cloudflare,pod13,2500,,,,,0,,0,0,Professional,2027-09-12,0,Professional,MEDIUM
-10601024,daddario,pod20,2500,,,,30,3,,0,0,Enterprise,2027-03-04,0,Enterprise (no HVAPI),MEDIUM
-647406,paybox,pod29,2500,,,,,7,,0,0,Enterprise,2027-04-30,0,Enterprise (no HVAPI),MEDIUM
-21667246,dyedurham,pod29,2500,,,,,2,,0,0,Enterprise,2027-07-31,0,Enterprise (no HVAPI),MEDIUM
-20740781,whistleexpresscarwash,pod27,2500,,,,,4,,0,0,Professional,2026-07-23,0,Professional,MEDIUM
-25783113,fender,pod27,2500,,,30,,2,,0,0,Enterprise,2028-01-01,0,Enterprise (no HVAPI),MEDIUM
-15137647,sevcohelp,pod27,2500,,,,,1,,0,0,Professional,2027-03-28,0,Professional,MEDIUM
-20296227,mitratech,pod19,2500,,,,,614,,0,0,Enterprise,2027-03-26,0,Enterprise (no HVAPI),MEDIUM
-1303873,continuityhelp,pod19,2500,,,,10,4,,0,0,Enterprise,2027-03-26,0,Enterprise (no HVAPI),MEDIUM
-481325,pangeauniversalholdings,pod20,2500,,,,30,74,,0,0,Enterprise,2027-04-30,0,Enterprise (no HVAPI),MEDIUM
-21239753,teamsystem6207,pod17,2500,,,,,192,,0,0,Enterprise,2028-01-01,0,Enterprise (no HVAPI),MEDIUM
-26277067,clearme,pod27,2500,,,30,30,711,,0,0,Enterprise,2029-05-12,0,Enterprise (no HVAPI),MEDIUM
-2284135,rvonline,pod23,2500,,,,,0,,1,0,Professional,2027-04-22,0,Professional,MEDIUM
-10683160,deonibushelp,pod27,2500,,,,,3,,0,0,Enterprise,2027-03-12,0,Enterprise (no HVAPI),MEDIUM
-680250,cambridgeinternational,pod18,2500,,,,30,40,,0,0,Enterprise,2026-12-26,0,Enterprise (no HVAPI),MEDIUM
-2285337,kippy4197,pod28,2500,,,,,3,,0,0,Professional,2027-05-22,0,Professional,MEDIUM
-25467904,betfair-za,pod28,2500,,30,,,1,,0,0,Enterprise,2027-12-31,0,Enterprise (no HVAPI),MEDIUM
-42274,printfection,pod27,2500,,,,10,260,,0,0,Professional,2027-02-24,0,Professional,MEDIUM
-9145426,dermatica,pod29,2500,,30,30,30,396,,0,0,Enterprise,2026-12-14,0,Enterprise (no HVAPI),MEDIUM
-11279154,mindgeek,pod19,2500,,,,,148,,0,0,Enterprise,2035-11-19,0,Enterprise (no HVAPI),MEDIUM
-22122030,atendimento-britania,pod20,2500,,,30,,936,,0,0,Enterprise,2030-03-29,0,Enterprise (no HVAPI),MEDIUM
-14024289,fitxsupport,pod29,2500,,,,,2,,0,0,Enterprise,2026-08-25,0,Enterprise (no HVAPI),MEDIUM
-1,z1legacy,pod26,2500,,,,,0,,0,0,Enterprise,2026-07-21,0,Enterprise (no HVAPI),MEDIUM
-10574709,hidrb,pod19,2500,,,,,2,,0,0,Professional,2026-08-19,0,Professional,MEDIUM
-9289867,storis,pod20,2500,,,,,2,,0,0,Enterprise,2028-03-27,0,Enterprise (no HVAPI),MEDIUM
-11340143,gridx-support,pod18,2500,,,,,8,,0,0,Unknown,,0,Unknown,MEDIUM
-10060526,dynatrace,pod23,2500,,,,,29,,0,0,Unknown,,0,Unknown,MEDIUM
-26671159,eclect-35387,pod30,2500,,,,,1,,0,0,Unknown,,0,Unknown,MEDIUM
-126563,dibs,pod18,2500,,,,,1,,0,0,Unknown,,0,Unknown,MEDIUM
-24318944,pdi-z-p0r10,pod19,2500,,,,30,10,,0,0,Unknown,,0,Unknown,MEDIUM
-18979762,avaya3435,pod25,2500,,,,,2,,0,0,Unknown,,0,Unknown,MEDIUM
-387947,geoservices,pod29,2500,,,,,2,,0,0,Unknown,,0,Unknown,MEDIUM
-10615441,dataseti-krysina,pod23,2500,,,,,0,,0,0,Unknown,,0,Unknown,MEDIUM
-9210764,loomhelp,pod29,2500,,,,,1,,0,0,Unknown,,0,Unknown,MEDIUM
-13686486,retailecommerce,pod27,2500,,,,,4,,0,0,Unknown,,0,Unknown,MEDIUM
-2307013,guthy-renker,pod23,2500,,,,,1,,0,0,Enterprise,2026-08-03,0,Enterprise (no HVAPI),MEDIUM
+INSTANCE_ACCOUNT_ID,INSTANCE_ACCOUNT_SUBDOMAIN,INSTANCE_ACCOUNT_POD_ID,SUBSCRIPTION_RATE_LIMIT,TICKETS_UPDATE_LIMIT,PER_TICKET_UPDATES_LIMIT,INFLIGHT_JOBS_LIMIT,INCREMENTAL_EXPORTS_LIMIT,SUBSCRIPTION_RATE_USED,TICKETS_UPDATE_USED,ERRORS_429_COUNT,has_hvapi,support_plan,ARR,AGENT_COUNT,CONTRACT_RENEWAL_DATE,is_sandbox,plan_tier,concern_level
+2350998,amberelectric,pod13,2500,300,30,,30,473,14,0,0,Professional,157804.68,173,2027-11-18,0,Professional,MEDIUM
+25861074,bonitassupport,pod28,2500,300,,,,1,1,0,0,Enterprise,5264.05,1000,2030-09-30,0,Enterprise (no HVAPI),MEDIUM
+15250771,bizaway,pod29,2500,300,30,,30,164,3,0,0,Enterprise,668008.83,7200,2027-11-15,0,Enterprise (no HVAPI),MEDIUM
+987567,joinhandshake,pod23,2500,300,30,,30,1839,24,0,0,Enterprise,217018.92,217,2028-11-30,0,Enterprise (no HVAPI),MEDIUM
+9597532,outlierorg,pod20,2500,300,30,,30,58,1,0,0,Professional,22080.0,20,2026-10-01,0,Professional,MEDIUM
+10006640,cinchhelp,pod29,2500,300,30,30,,395,14,0,0,Enterprise,1002089.12,350,2028-05-09,0,Enterprise (no HVAPI),MEDIUM
+2003758,hollywoodbets,pod27,2500,300,30,,30,328,57,0,0,Enterprise,743608.98,950,2034-12-24,0,Enterprise (no HVAPI),MEDIUM
+9772212,motorway,pod28,2500,300,30,30,30,113,3,0,0,Enterprise,1020179.6,15600,2028-01-01,0,Enterprise (no HVAPI),MEDIUM
+14418507,digibank7473,pod29,2500,300,30,,,706,3,0,0,Enterprise,307510.32,200,2028-06-19,0,Enterprise (no HVAPI),MEDIUM
+9805906,trading2129704,pod29,2500,300,30,,30,2500,176,256,0,Enterprise,630627.84,10575,2027-03-31,0,Enterprise (no HVAPI),MEDIUM
+17739235,whpslatergordon,pod29,2500,300,30,,30,131,4,0,0,Enterprise,16411.44,2040,,0,Enterprise (no HVAPI),MEDIUM
+11569996,imagen-ai,pod29,2500,300,30,,30,412,29,0,0,Professional,43581.96,39,2027-01-30,0,Professional,MEDIUM
+20926365,apol528,pod29,2500,300,30,,,30,5,0,0,Professional,955.24,7,2026-07-25,0,Professional,MEDIUM
+24466037,luckyfishza,pod18,2500,300,30,,,19,5,0,0,Enterprise,410608.98,950,2027-12-31,0,Enterprise (no HVAPI),MEDIUM
+9197833,accorplushelp,pod25,2500,300,30,30,,581,291,0,0,Enterprise,633975.12,381,2027-01-01,0,Enterprise (no HVAPI),MEDIUM
+15620072,jellycat,pod29,2500,300,30,,,28,7,0,0,Enterprise,254624.07,95,2026-12-07,0,Enterprise (no HVAPI),MEDIUM
+2457132,shiftsmart,pod20,2500,300,30,30,30,1929,3,0,0,Professional,55260.0,55,2026-11-01,0,Professional,MEDIUM
+24096177,backbonecustomerservice,pod28,2500,300,30,30,30,19,3,0,0,Enterprise,29072.46,12,2026-08-10,0,Enterprise (no HVAPI),MEDIUM
+9214421,untappd,pod20,2500,300,30,,30,13,1,0,0,Enterprise,61440.0,32,2026-12-31,0,Enterprise (no HVAPI),MEDIUM
+11143075,imprintpayments,pod20,2500,300,30,,30,652,51,0,0,Enterprise,761040.0,23160,2029-05-05,0,Enterprise (no HVAPI),MEDIUM
+874228,homeexchangehelp,pod29,2500,300,30,30,30,430,1,0,0,Enterprise,249722.59,142,2027-06-23,0,Enterprise (no HVAPI),MEDIUM
+20636,thoughtworks,pod18,2500,300,30,,,13,2,0,0,Enterprise,87699.69,480,2035-09-30,0,Enterprise (no HVAPI),MEDIUM
+16168248,airalohelp,pod29,2500,300,30,30,,399,18,0,0,Enterprise,944456.04,430,2027-05-08,0,Enterprise (no HVAPI),MEDIUM
+18609056,aareongroup,pod29,2500,300,30,,30,901,1,0,0,Enterprise,1067788.97,1042,2027-12-31,0,Enterprise (no HVAPI),MEDIUM
+1955318,shoulder,pod27,2500,300,30,,,191,37,0,0,Enterprise,61207.49,40,2027-06-30,0,Enterprise (no HVAPI),MEDIUM
+10672988,ckgroup,pod29,2500,300,30,,,2,2,0,0,Enterprise,180249.24,105,2027-03-28,0,Enterprise (no HVAPI),MEDIUM
+269012,musement,pod29,2500,300,30,30,,5,3,0,0,Enterprise,307536.64,3000,2027-02-01,0,Enterprise (no HVAPI),MEDIUM
+23478127,bnext8785,pod29,2500,300,30,,30,51,1,0,0,Enterprise,89945.2,44,2026-12-16,0,Enterprise (no HVAPI),MEDIUM
+13717108,amphoralogistics,pod29,2500,300,30,,,27,12,0,0,Professional,120915.13,30,2027-05-01,0,Professional,MEDIUM
+20643484,medsenior,pod20,2500,300,30,30,,83,49,0,0,Enterprise,451400.08,1075,2027-11-29,0,Enterprise (no HVAPI),MEDIUM
+20010022,anagaming,pod20,2500,300,30,,30,376,20,1,0,Enterprise,380570.04,275,2026-12-30,0,Enterprise (no HVAPI),MEDIUM
+24447420,pdfguru,pod29,2500,300,30,30,30,206,27,0,0,Enterprise,,12680,2027-03-28,0,Enterprise (no HVAPI),MEDIUM
+453192,onafriq,pod29,2500,300,30,,,3,1,0,0,Enterprise,5264.05,1000,2030-09-30,0,Enterprise (no HVAPI),MEDIUM
+620462,jimdo,pod28,2500,300,30,,30,636,1,1,0,Enterprise,341653.91,67,2028-06-30,0,Enterprise (no HVAPI),MEDIUM
+13760574,honeywell2721,pod27,2500,100,30,,,123,42,0,0,Professional,556407.99,45,2027-06-06,0,Professional,MEDIUM
+162971,miniclip,pod17,2500,100,30,,,350,113,211,0,Enterprise,69180.0,23,2027-05-30,0,Enterprise (no HVAPI),MEDIUM
+899047,freshbooks,pod13,2500,100,30,,10,782,8,117,0,Enterprise,225000.0,125,2026-10-31,0,Enterprise (no HVAPI),MEDIUM
+598603,kingcare,pod29,2500,100,30,30,10,781,47,2,0,Enterprise,223080.0,110,2027-01-31,0,Enterprise (no HVAPI),MEDIUM
+25158261,acertus,pod20,2500,100,30,30,10,251,11,0,0,Enterprise,26085.4,620,2027-05-19,0,Enterprise (no HVAPI),MEDIUM
+10113050,sheinpro,pod15,2500,100,30,30,10,237,3,0,0,Professional,55200.0,40,2026-08-01,0,Professional,MEDIUM
+2307013,guthy-renker,pod23,2500,,,,,1,,0,0,Enterprise,118087.2,82,2026-08-03,0,Enterprise (no HVAPI),MEDIUM
+13686486,retailecommerce,pod27,2500,,,,,4,,0,0,Unknown,,,,0,Unknown,MEDIUM
+354735,metro-ace,pod13,2500,,,,30,21,,0,0,Enterprise,451982.25,595,2027-05-19,0,Enterprise (no HVAPI),MEDIUM
+184946,cloudflare,pod13,2500,,,,,0,,0,0,Professional,37470.0,50,2027-09-12,0,Professional,MEDIUM
+10601024,daddario,pod20,2500,,,,30,3,,0,0,Enterprise,24336.0,12,2027-03-04,0,Enterprise (no HVAPI),MEDIUM
+647406,paybox,pod29,2500,,,,,7,,0,0,Enterprise,66060.0,36,2027-04-30,0,Enterprise (no HVAPI),MEDIUM
+9659718,precisionnutrition,pod20,2500,,,,,1,,0,0,Enterprise,54377.28,23,2026-12-08,0,Enterprise (no HVAPI),MEDIUM
+21667246,dyedurham,pod29,2500,,,,,2,,0,0,Enterprise,548320.53,246,2027-07-31,0,Enterprise (no HVAPI),MEDIUM
+20740781,whistleexpresscarwash,pod27,2500,,,,,4,,0,0,Professional,47040.0,60,2026-07-23,0,Professional,MEDIUM
+15137647,sevcohelp,pod27,2500,,,,,1,,0,0,Professional,15732.0,12,2027-03-28,0,Professional,MEDIUM
+25783113,fender,pod27,2500,,,30,,2,,0,0,Enterprise,89999.96,77,2028-01-01,0,Enterprise (no HVAPI),MEDIUM
+20296227,mitratech,pod19,2500,,,,,614,,0,0,Enterprise,40560.0,20,2027-03-26,0,Enterprise (no HVAPI),MEDIUM
+481325,pangeauniversalholdings,pod20,2500,,,,30,74,,0,0,Enterprise,93288.0,35,2027-04-30,0,Enterprise (no HVAPI),MEDIUM
+21239753,teamsystem6207,pod17,2500,,,,,192,,0,0,Enterprise,648405.48,170,2028-01-01,0,Enterprise (no HVAPI),MEDIUM
+1303873,continuityhelp,pod19,2500,,,,10,4,,0,0,Enterprise,32448.0,16,2027-03-26,0,Enterprise (no HVAPI),MEDIUM
+2284135,rvonline,pod23,2500,,,,,0,,1,0,Professional,24482.16,18,2027-04-22,0,Professional,MEDIUM
+10683160,deonibushelp,pod27,2500,,,,,3,,0,0,Enterprise,39876.0,17,2027-03-12,0,Enterprise (no HVAPI),MEDIUM
+680250,cambridgeinternational,pod18,2500,,,,30,40,,0,0,Enterprise,147053.04,27384,2026-12-26,0,Enterprise (no HVAPI),MEDIUM
+2285337,kippy4197,pod28,2500,,,,,3,,0,0,Professional,8597.14,9,2027-05-22,0,Professional,MEDIUM
+25467904,betfair-za,pod28,2500,,30,,,1,,0,0,Enterprise,385054.46,950,2027-12-31,0,Enterprise (no HVAPI),MEDIUM
+42274,printfection,pod27,2500,,,,10,260,,0,0,Professional,48060.0,45,2027-02-24,0,Professional,MEDIUM
+9145426,dermatica,pod29,2500,,30,30,30,396,,0,0,Enterprise,2192755.01,12750,2026-12-14,0,Enterprise (no HVAPI),MEDIUM
+11279154,mindgeek,pod19,2500,,,,,148,,0,0,Enterprise,367200.0,180,2035-11-19,0,Enterprise (no HVAPI),MEDIUM
+22122030,atendimento-britania,pod20,2500,,,30,,936,,0,0,Enterprise,229973.09,344,2030-03-29,0,Enterprise (no HVAPI),MEDIUM
+14024289,fitxsupport,pod29,2500,,,,,2,,0,0,Enterprise,116982.03,50,2026-08-25,0,Enterprise (no HVAPI),MEDIUM
+1,z1legacy,pod26,2500,,,,,0,,0,0,Enterprise,,100000,2026-07-21,0,Enterprise (no HVAPI),MEDIUM
+10574709,hidrb,pod19,2500,,,,,2,,0,0,Professional,19668.0,7,2026-08-19,0,Professional,MEDIUM
+9289867,storis,pod20,2500,,,,,2,,0,0,Enterprise,4536.0,77,2028-03-27,0,Enterprise (no HVAPI),MEDIUM
+26277067,clearme,pod27,2500,,,30,30,711,,0,0,Enterprise,,,2029-05-12,0,Enterprise (no HVAPI),MEDIUM
+958463,quintoandar,pod13,2500,,,,,2,,0,0,Unknown,966589.53,,2026-08-03,0,Unknown,MEDIUM
+26671159,eclect-35387,pod30,2500,,,,,1,,0,0,Unknown,,,,0,Unknown,MEDIUM
+11340143,gridx-support,pod18,2500,,,,,8,,0,0,Unknown,134762.33,,,0,Unknown,MEDIUM
+10060526,dynatrace,pod23,2500,,,,,29,,0,0,Unknown,1318876.32,,,0,Unknown,MEDIUM
+126563,dibs,pod18,2500,,,,,1,,0,0,Unknown,459399.96,,,0,Unknown,MEDIUM
+24318944,pdi-z-p0r10,pod19,2500,,,,30,10,,0,0,Unknown,,,,0,Unknown,MEDIUM
+18979762,avaya3435,pod25,2500,,,,,2,,0,0,Unknown,,,,0,Unknown,MEDIUM
+387947,geoservices,pod29,2500,,,,,2,,0,0,Unknown,799692.0,,,0,Unknown,MEDIUM
+10615441,dataseti-krysina,pod23,2500,,,,,0,,0,0,Unknown,,,,0,Unknown,MEDIUM
+9210764,loomhelp,pod29,2500,,,,,1,,0,0,Unknown,112637.0,,,0,Unknown,MEDIUM
+10582169,leaderbankit,pod23,2500,,,,,2,,0,0,Enterprise,70009.14,155,2029-05-28,0,Enterprise (no HVAPI),MEDIUM

@@ -11,6 +11,11 @@ CREATE TABLE raw_products AS
 SELECT *
 FROM read_csv_auto('data/product_features.csv', header=true);
 
+-- Load ARR and agent counts
+CREATE TABLE raw_arr_agents AS
+SELECT *
+FROM read_csv_auto('data/arr_agents.csv', header=true);
+
 -- Load contract renewal dates
 CREATE TABLE raw_renewals AS
 SELECT *
@@ -46,6 +51,8 @@ SELECT
     e.ERRORS_429_COUNT,
     COALESCE(f.has_hvapi, 0) AS has_hvapi,
     COALESCE(f.support_plan, 'Unknown') AS support_plan,
+    aa.ARR,
+    aa.AGENT_COUNT,
     r.CONTRACT_RENEWAL_DATE,
     CASE WHEN s.INSTANCE_ACCOUNT_ID IS NOT NULL THEN 1 ELSE 0 END AS is_sandbox,
     CASE
@@ -73,6 +80,7 @@ SELECT
     END AS concern_level
 FROM raw_elevated e
 LEFT JOIN account_features f ON e.INSTANCE_ACCOUNT_ID = f.INSTANCE_ACCOUNT_ID
+LEFT JOIN raw_arr_agents aa ON e.INSTANCE_ACCOUNT_ID = aa.INSTANCE_ACCOUNT_ID
 LEFT JOIN raw_renewals r ON e.INSTANCE_ACCOUNT_ID = r.INSTANCE_ACCOUNT_ID
 LEFT JOIN raw_sandboxes s ON e.INSTANCE_ACCOUNT_ID = s.INSTANCE_ACCOUNT_ID;
 

@@ -142,9 +142,9 @@ filteredHigh = highFilter === "All" ? highData : highData.filter(d => d.plan_tie
 Inputs.table(filteredHigh, {
   columns: [
     "INSTANCE_ACCOUNT_SUBDOMAIN",
-    "INSTANCE_ACCOUNT_POD_ID",
     "plan_tier",
-    "has_hvapi",
+    "ARR",
+    "AGENT_COUNT",
     "CONTRACT_RENEWAL_DATE",
     "SUBSCRIPTION_RATE_LIMIT",
     "TICKETS_UPDATE_LIMIT",
@@ -155,9 +155,9 @@ Inputs.table(filteredHigh, {
   ],
   header: {
     INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
-    INSTANCE_ACCOUNT_POD_ID: "Pod",
     plan_tier: "Plan Tier",
-    has_hvapi: "HVAPI?",
+    ARR: "ARR ($)",
+    AGENT_COUNT: "Agents",
     CONTRACT_RENEWAL_DATE: "Renewal Date",
     SUBSCRIPTION_RATE_LIMIT: "Global API",
     TICKETS_UPDATE_LIMIT: "Ticket Threshold",
@@ -165,6 +165,10 @@ Inputs.table(filteredHigh, {
     INFLIGHT_JOBS_LIMIT: "Bulk Jobs",
     INCREMENTAL_EXPORTS_LIMIT: "Incremental",
     ERRORS_429_COUNT: "429 Errors"
+  },
+  format: {
+    ARR: x => x ? `$${Math.round(x).toLocaleString()}` : "",
+    AGENT_COUNT: x => x ? x.toLocaleString() : ""
   },
   sort: "SUBSCRIPTION_RATE_LIMIT",
   reverse: true,
@@ -183,8 +187,9 @@ Accounts at **HVAPI standard** limits (2500 RPM global or 300 ticket threshold) 
 Inputs.table(mediumData, {
   columns: [
     "INSTANCE_ACCOUNT_SUBDOMAIN",
-    "INSTANCE_ACCOUNT_POD_ID",
     "plan_tier",
+    "ARR",
+    "AGENT_COUNT",
     "CONTRACT_RENEWAL_DATE",
     "SUBSCRIPTION_RATE_LIMIT",
     "TICKETS_UPDATE_LIMIT",
@@ -195,8 +200,9 @@ Inputs.table(mediumData, {
   ],
   header: {
     INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
-    INSTANCE_ACCOUNT_POD_ID: "Pod",
     plan_tier: "Plan Tier",
+    ARR: "ARR ($)",
+    AGENT_COUNT: "Agents",
     CONTRACT_RENEWAL_DATE: "Renewal Date",
     SUBSCRIPTION_RATE_LIMIT: "Global API",
     TICKETS_UPDATE_LIMIT: "Ticket Threshold",
@@ -204,6 +210,10 @@ Inputs.table(mediumData, {
     INFLIGHT_JOBS_LIMIT: "Bulk Jobs",
     INCREMENTAL_EXPORTS_LIMIT: "Incremental",
     ERRORS_429_COUNT: "429 Errors"
+  },
+  format: {
+    ARR: x => x ? `$${Math.round(x).toLocaleString()}` : "",
+    AGENT_COUNT: x => x ? x.toLocaleString() : ""
   },
   sort: "SUBSCRIPTION_RATE_LIMIT",
   reverse: true,
