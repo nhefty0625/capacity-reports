@@ -138,15 +138,17 @@ viewof highFilter = Inputs.select(
 )
 
 viewof premierFilter = Inputs.select(
-  ["All", "Premier", "Non-Premier"],
+  ["All", "Premier / Premier Enterprise", "Premier Essentials", "Non-Premier"],
   {label: "Premier support:", value: "All"}
 )
 
 filteredHigh = highData.filter(d => {
   const tierMatch = highFilter === "All" || d.plan_tier === highFilter;
+  const pt = d.PREMIER_TIER || "";
   const premierMatch = premierFilter === "All"
-    || (premierFilter === "Premier" && String(d.IS_PREMIER).toLowerCase() === "true")
-    || (premierFilter === "Non-Premier" && String(d.IS_PREMIER).toLowerCase() !== "true");
+    || (premierFilter === "Premier / Premier Enterprise" && (pt === "Premier" || pt === "Premier Enterprise"))
+    || (premierFilter === "Premier Essentials" && pt === "Premier Essentials")
+    || (premierFilter === "Non-Premier" && pt === "");
   return tierMatch && premierMatch;
 })
 
@@ -154,7 +156,7 @@ Inputs.table(filteredHigh, {
   columns: [
     "INSTANCE_ACCOUNT_SUBDOMAIN",
     "plan_tier",
-    "IS_PREMIER",
+    "PREMIER_TIER",
     "ARR",
     "AGENT_COUNT",
     "CONTRACT_RENEWAL_DATE",
@@ -168,7 +170,7 @@ Inputs.table(filteredHigh, {
   header: {
     INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
     plan_tier: "Plan Tier",
-    IS_PREMIER: "Premier",
+    PREMIER_TIER: "Premier",
     ARR: "ARR ($)",
     AGENT_COUNT: "Agents",
     CONTRACT_RENEWAL_DATE: "Renewal Date",
@@ -182,7 +184,7 @@ Inputs.table(filteredHigh, {
   format: {
     ARR: x => x ? `$${Math.round(x).toLocaleString()}` : "",
     AGENT_COUNT: x => x ? x.toLocaleString() : "",
-    IS_PREMIER: x => String(x).toLowerCase() === "true" ? "Yes" : "No"
+    PREMIER_TIER: x => x || "—"
   },
   sort: "SUBSCRIPTION_RATE_LIMIT",
   reverse: true,
@@ -199,21 +201,23 @@ Accounts at **HVAPI standard** limits (2500 RPM global or 300 ticket threshold) 
 //| echo: false
 
 viewof mediumPremierFilter = Inputs.select(
-  ["All", "Premier", "Non-Premier"],
+  ["All", "Premier / Premier Enterprise", "Premier Essentials", "Non-Premier"],
   {label: "Premier support:", value: "All"}
 )
 
 filteredMedium = mediumData.filter(d => {
+  const pt = d.PREMIER_TIER || "";
   if (mediumPremierFilter === "All") return true;
-  if (mediumPremierFilter === "Premier") return String(d.IS_PREMIER).toLowerCase() === "true";
-  return String(d.IS_PREMIER).toLowerCase() !== "true";
+  if (mediumPremierFilter === "Premier / Premier Enterprise") return pt === "Premier" || pt === "Premier Enterprise";
+  if (mediumPremierFilter === "Premier Essentials") return pt === "Premier Essentials";
+  return pt === "";
 })
 
 Inputs.table(filteredMedium, {
   columns: [
     "INSTANCE_ACCOUNT_SUBDOMAIN",
     "plan_tier",
-    "IS_PREMIER",
+    "PREMIER_TIER",
     "ARR",
     "AGENT_COUNT",
     "CONTRACT_RENEWAL_DATE",
@@ -227,7 +231,7 @@ Inputs.table(filteredMedium, {
   header: {
     INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
     plan_tier: "Plan Tier",
-    IS_PREMIER: "Premier",
+    PREMIER_TIER: "Premier",
     ARR: "ARR ($)",
     AGENT_COUNT: "Agents",
     CONTRACT_RENEWAL_DATE: "Renewal Date",
@@ -241,7 +245,7 @@ Inputs.table(filteredMedium, {
   format: {
     ARR: x => x ? `$${Math.round(x).toLocaleString()}` : "",
     AGENT_COUNT: x => x ? x.toLocaleString() : "",
-    IS_PREMIER: x => String(x).toLowerCase() === "true" ? "Yes" : "No"
+    PREMIER_TIER: x => x || "—"
   },
   sort: "SUBSCRIPTION_RATE_LIMIT",
   reverse: true,

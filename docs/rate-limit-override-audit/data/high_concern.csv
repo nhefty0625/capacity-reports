@@ -1,105 +1,105 @@
-INSTANCE_ACCOUNT_ID,INSTANCE_ACCOUNT_SUBDOMAIN,INSTANCE_ACCOUNT_POD_ID,SUBSCRIPTION_RATE_LIMIT,TICKETS_UPDATE_LIMIT,PER_TICKET_UPDATES_LIMIT,INFLIGHT_JOBS_LIMIT,INCREMENTAL_EXPORTS_LIMIT,SUBSCRIPTION_RATE_USED,TICKETS_UPDATE_USED,ERRORS_429_COUNT,has_hvapi,support_plan,ARR,IS_PREMIER,AGENT_COUNT,CONTRACT_RENEWAL_DATE,is_sandbox,plan_tier,concern_level
-9077126,coupangcustomersupport,pod25,25000,5000,30,100,30,10862,3030,32,1,Enterprise,488569.23,true,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
-655155,grubhub,pod20,10000,24000,30,,30,3883,443,0,1,Enterprise,453975.16,true,60000,2027-11-30,0,Enterprise (HVAPI),HIGH
+INSTANCE_ACCOUNT_ID,INSTANCE_ACCOUNT_SUBDOMAIN,INSTANCE_ACCOUNT_POD_ID,SUBSCRIPTION_RATE_LIMIT,TICKETS_UPDATE_LIMIT,PER_TICKET_UPDATES_LIMIT,INFLIGHT_JOBS_LIMIT,INCREMENTAL_EXPORTS_LIMIT,SUBSCRIPTION_RATE_USED,TICKETS_UPDATE_USED,ERRORS_429_COUNT,has_hvapi,support_plan,ARR,PREMIER_TIER,AGENT_COUNT,CONTRACT_RENEWAL_DATE,is_sandbox,plan_tier,concern_level
+9077126,coupangcustomersupport,pod25,25000,5000,30,100,30,10862,3030,32,1,Enterprise,488569.23,Premier Enterprise,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
+655155,grubhub,pod20,10000,24000,30,,30,3883,443,0,1,Enterprise,453975.16,Premier Enterprise,60000,2027-11-30,0,Enterprise (HVAPI),HIGH
 10557657,support,pod26,10000,9000,30,50,30,428,100,0,1,Enterprise,,,200000,2027-02-01,0,Enterprise (HVAPI),HIGH
-11041475,coupangeatsoperations,pod25,10000,3000,30,30,30,2331,886,0,1,Enterprise,274069.23,true,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
-11478963,canvateam,pod15,6500,600,30,30,45,2538,99,0,1,Enterprise,1543333.36,true,24000,2027-09-30,0,Enterprise (HVAPI),HIGH
-61840,rockstarsupport,pod19,5000,2000,30,,30,387,65,1,1,Enterprise,1163216.07,true,1500,2028-02-25,0,Enterprise (HVAPI),HIGH
-781284,chime,pod23,5000,2000,30,30,45,2200,589,10,1,Enterprise,3302276.31,true,8500,2027-04-01,0,Enterprise (HVAPI),HIGH
-9390984,takeaway,pod17,5000,2000,30,45,30,534,10,75,1,Enterprise,2633889.1,true,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
-10102607,gvc,pod17,5000,1000,30,30,30,1446,100,0,1,Enterprise,664434.98,true,6000,2027-10-01,0,Enterprise (HVAPI),HIGH
-10404715,betmgm,pod20,5000,1000,30,30,30,1066,187,0,1,Enterprise,549375.16,true,6000,2027-10-01,0,Enterprise (HVAPI),HIGH
-21473443,bet365cx,pod28,5000,600,30,30,,1896,122,0,1,Enterprise,4098845.39,true,5750,2034-11-04,0,Enterprise (HVAPI),HIGH
-16237142,daznsupport,pod29,5000,600,30,,10,761,180,0,0,Enterprise,747027.25,true,71912,2029-04-01,0,Enterprise (no HVAPI),HIGH
-9747139,ab-inbevdr,pod23,5000,300,30,,30,310,1,0,1,Enterprise,93925.7,true,3633,2028-11-28,0,Enterprise (HVAPI),HIGH
-11542602,coupangfc,pod25,5000,300,30,,30,1722,58,0,1,Enterprise,206569.23,true,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
-10896161,rocketnow,pod25,5000,300,30,,30,407,123,0,1,Enterprise,206569.23,true,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
-10934316,coupangtw,pod25,5000,300,30,30,30,1545,343,33,1,Enterprise,206569.23,true,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
-9049502,logitech,pod23,5000,300,30,30,,453,184,0,1,Enterprise,704100.54,true,1050,2027-11-30,0,Enterprise (HVAPI),HIGH
-10088868,ab-inbevbr,pod23,5000,300,30,,30,1733,132,0,1,Enterprise,93925.7,true,3633,2028-11-28,0,Enterprise (HVAPI),HIGH
-678183,hammerandchisel,pod23,5000,300,30,30,30,3372,123,0,1,Enterprise,971611.97,true,400,2027-09-30,0,Enterprise (HVAPI),HIGH
-950185,lemonadehelp,pod23,5000,300,30,30,30,3100,152,99,1,Enterprise,765762.0,true,7650,2027-01-01,0,Enterprise (HVAPI),HIGH
-21321137,ryze,pod20,5000,300,30,30,50,2049,58,0,1,Enterprise,3329604.0,true,700,2034-11-07,0,Enterprise (HVAPI),HIGH
-749863,travelperk,pod28,5000,300,30,30,30,824,272,2,1,Enterprise,2984725.04,false,2916,2027-06-24,0,Enterprise (HVAPI),HIGH
-479262,proctorio,pod13,5000,300,30,,,609,4,0,1,Professional,84672.0,false,48,2026-07-28,0,Enterprise (HVAPI),HIGH
-19152078,coupangtwfc,pod25,5000,,,,,3,,0,1,Enterprise,206569.23,true,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
-473962,nubank,pod19,4000,4000,30,,30,2298,23,0,1,Enterprise,1291378.98,true,2750,2027-03-01,0,Enterprise (HVAPI),HIGH
-978257,clearbit,pod23,4000,,,,,348,,0,0,Professional,39420.0,false,10,2026-07-25,0,Professional,HIGH
-14426656,justeat,pod29,4000,,,,,1,,0,1,Enterprise,172923.04,true,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
-11165451,next,pod17,3750,550,30,,30,109,21,0,1,Enterprise,292684.54,true,105246,2027-03-30,0,Enterprise (HVAPI),HIGH
-888110,totvssuporte,pod23,3500,5000,30,30,30,3500,326,158,1,Enterprise,703126.74,true,6250,2035-06-27,0,Enterprise (HVAPI),HIGH
-9450393,findheadway,pod20,3500,300,30,,30,188,5,0,1,Enterprise,1577424.96,true,33000,2027-06-27,0,Enterprise (HVAPI),HIGH
-14949990,getyourguidesupport,pod29,3500,300,30,30,30,844,74,0,1,Enterprise,757908.06,true,28800,2026-12-31,0,Enterprise (HVAPI),HIGH
-9504,dropbox,pod13,3000,2000,30,30,30,1054,390,0,1,Enterprise,204192.49,true,660,2027-05-24,0,Enterprise (HVAPI),HIGH
-11852402,campbellscare,pod23,3000,300,30,,,64,36,0,1,Enterprise,185633.28,true,80,2027-12-31,0,Enterprise (HVAPI),HIGH
-1957940,bird,pod20,3000,100,30,30,10,153,7,0,0,Enterprise,26693.32,false,1900,2026-12-08,0,Enterprise (no HVAPI),HIGH
+11041475,coupangeatsoperations,pod25,10000,3000,30,30,30,2331,886,0,1,Enterprise,274069.23,Premier,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
+11478963,canvateam,pod15,6500,600,30,30,45,2538,99,0,1,Enterprise,1543333.36,Premier Enterprise,24000,2027-09-30,0,Enterprise (HVAPI),HIGH
+9390984,takeaway,pod17,5000,2000,30,45,30,534,10,75,1,Enterprise,2633889.1,Premier Enterprise,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
+61840,rockstarsupport,pod19,5000,2000,30,,30,387,65,1,1,Enterprise,1163216.07,Premier Enterprise,1500,2028-02-25,0,Enterprise (HVAPI),HIGH
+781284,chime,pod23,5000,2000,30,30,45,2200,589,10,1,Enterprise,3302276.31,Premier Enterprise,8500,2027-04-01,0,Enterprise (HVAPI),HIGH
+10102607,gvc,pod17,5000,1000,30,30,30,1446,100,0,1,Enterprise,664434.98,Premier Enterprise,6000,2027-10-01,0,Enterprise (HVAPI),HIGH
+10404715,betmgm,pod20,5000,1000,30,30,30,1066,187,0,1,Enterprise,549375.16,Premier,6000,2027-10-01,0,Enterprise (HVAPI),HIGH
+21473443,bet365cx,pod28,5000,600,30,30,,1896,122,0,1,Enterprise,4098845.39,Premier Enterprise,5750,2034-11-04,0,Enterprise (HVAPI),HIGH
+16237142,daznsupport,pod29,5000,600,30,,10,761,180,0,0,Enterprise,747027.25,Premier Enterprise,71912,2029-04-01,0,Enterprise (no HVAPI),HIGH
+11542602,coupangfc,pod25,5000,300,30,,30,1722,58,0,1,Enterprise,206569.23,Premier,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
+9747139,ab-inbevdr,pod23,5000,300,30,,30,310,1,0,1,Enterprise,93925.7,Premier,3633,2028-11-28,0,Enterprise (HVAPI),HIGH
+10896161,rocketnow,pod25,5000,300,30,,30,407,123,0,1,Enterprise,206569.23,Premier,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
+10934316,coupangtw,pod25,5000,300,30,30,30,1545,343,33,1,Enterprise,206569.23,Premier,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
+678183,hammerandchisel,pod23,5000,300,30,30,30,3372,123,0,1,Enterprise,971611.97,Premier Essentials,400,2027-09-30,0,Enterprise (HVAPI),HIGH
+21321137,ryze,pod20,5000,300,30,30,50,2049,58,0,1,Enterprise,3329604.0,Premier Enterprise,700,2034-11-07,0,Enterprise (HVAPI),HIGH
+950185,lemonadehelp,pod23,5000,300,30,30,30,3100,152,99,1,Enterprise,765762.0,Premier,7650,2027-01-01,0,Enterprise (HVAPI),HIGH
+479262,proctorio,pod13,5000,300,30,,,609,4,0,1,Professional,84672.0,,48,2026-07-28,0,Enterprise (HVAPI),HIGH
+9049502,logitech,pod23,5000,300,30,30,,453,184,0,1,Enterprise,704100.54,Premier Enterprise,1050,2027-11-30,0,Enterprise (HVAPI),HIGH
+10088868,ab-inbevbr,pod23,5000,300,30,,30,1733,132,0,1,Enterprise,93925.7,Premier,3633,2028-11-28,0,Enterprise (HVAPI),HIGH
+749863,travelperk,pod28,5000,300,30,30,30,824,272,2,1,Enterprise,2984725.04,,2916,2027-06-24,0,Enterprise (HVAPI),HIGH
+19152078,coupangtwfc,pod25,5000,,,,,3,,0,1,Enterprise,206569.23,Premier,20000,2029-06-01,0,Enterprise (HVAPI),HIGH
+473962,nubank,pod19,4000,4000,30,,30,2298,23,0,1,Enterprise,1291378.98,Premier Enterprise,2750,2027-03-01,0,Enterprise (HVAPI),HIGH
+978257,clearbit,pod23,4000,,,,,348,,0,0,Professional,39420.0,,10,2026-07-25,0,Professional,HIGH
+14426656,justeat,pod29,4000,,,,,1,,0,1,Enterprise,172923.04,Premier,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
+11165451,next,pod17,3750,550,30,,30,109,21,0,1,Enterprise,292684.54,Premier Enterprise,105246,2027-03-30,0,Enterprise (HVAPI),HIGH
+888110,totvssuporte,pod23,3500,5000,30,30,30,3500,326,158,1,Enterprise,703126.74,Premier Enterprise,6250,2035-06-27,0,Enterprise (HVAPI),HIGH
+14949990,getyourguidesupport,pod29,3500,300,30,30,30,844,74,0,1,Enterprise,757908.06,Premier Enterprise,28800,2026-12-31,0,Enterprise (HVAPI),HIGH
+9450393,findheadway,pod20,3500,300,30,,30,188,5,0,1,Enterprise,1577424.96,Premier Enterprise,33000,2027-06-27,0,Enterprise (HVAPI),HIGH
+9504,dropbox,pod13,3000,2000,30,30,30,1054,390,0,1,Enterprise,204192.49,Premier,660,2027-05-24,0,Enterprise (HVAPI),HIGH
+11852402,campbellscare,pod23,3000,300,30,,,64,36,0,1,Enterprise,185633.28,Premier Essentials,80,2027-12-31,0,Enterprise (HVAPI),HIGH
+1957940,bird,pod20,3000,100,30,30,10,153,7,0,0,Enterprise,26693.32,,1900,2026-12-08,0,Enterprise (no HVAPI),HIGH
 2195342,waterbears-z3n-dev,pod26,3000,,,,,2,,0,1,Enterprise,,,,2027-01-16,0,Enterprise (HVAPI),HIGH
-761341,casounico,pod19,2500,6000,30,30,,416,259,23,1,Enterprise,1994400.0,true,96000,2027-11-10,0,Enterprise (HVAPI),HIGH
-238765,shopify,pod13,2500,5000,30,30,,619,136,0,1,Enterprise,1070879.16,true,6100,2027-05-30,0,Enterprise (HVAPI),HIGH
-34989,ubercab,pod20,2500,4000,30,,,13,5,0,1,Enterprise,238949.6,true,64800,2027-12-31,0,Enterprise (HVAPI),HIGH
-662885,deliveroo,pod17,2500,3000,30,30,30,1781,5,0,1,Enterprise,1229518.36,true,666,2026-12-10,0,Enterprise (HVAPI),HIGH
-1470967,uberfreight,pod19,2500,3000,30,30,,1500,59,6,1,Enterprise,134681.3,true,64800,2027-12-31,0,Enterprise (HVAPI),HIGH
-1506503,lbc,pod18,2500,2000,30,30,30,76,2,0,1,Enterprise,636819.29,false,330,2027-11-06,0,Enterprise (HVAPI),HIGH
-138842,slack,pod19,2500,2000,60,30,30,603,49,0,1,Enterprise,788133.36,true,340,2026-12-22,0,Enterprise (HVAPI),HIGH
-22305,doctorsim,pod28,2500,2000,30,,,364,181,59,1,Professional,6143.4,false,12,2028-04-14,0,Enterprise (HVAPI),HIGH
-2016348,etsy,pod23,2500,2000,30,30,30,1300,153,32,1,Enterprise,744278.22,true,2100,2036-02-05,0,Enterprise (HVAPI),HIGH
-657902,digitec,pod18,2500,2000,30,30,30,429,9,0,1,Enterprise,819000.0,false,28080,2027-12-30,0,Enterprise (HVAPI),HIGH
-1900697,mediaoceanhelp,pod23,2500,2000,30,,30,54,8,0,1,Enterprise,346601.07,false,222,2028-03-31,0,Enterprise (HVAPI),HIGH
-1381317,justeatit,pod29,2500,2000,30,30,,2500,360,806,1,Enterprise,172923.04,true,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
-795717,gcash,pod25,2500,2000,30,30,,1726,777,0,1,Enterprise,1929552.0,true,34992,2026-07-31,0,Enterprise (HVAPI),HIGH
-2363060,atendimentomagazineluiza,pod13,2500,2000,30,30,30,194,46,0,1,Enterprise,81216.42,true,82253,2028-01-04,0,Enterprise (HVAPI),HIGH
-1407322,tradeinn,pod28,2500,2000,30,30,,2282,252,0,1,Enterprise,105250.88,false,54,2027-07-07,0,Enterprise (HVAPI),HIGH
-222711,prodegesupport,pod20,2500,2000,30,30,30,193,13,1040,1,Enterprise,210000.0,false,15,2028-04-28,0,Enterprise (HVAPI),HIGH
-626195,skipthedishessupport,pod23,2500,1500,30,30,,278,42,0,1,Enterprise,172923.04,true,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
-170270,takealot,pod28,2500,1500,30,,30,2388,1,1,1,Enterprise,4131996.04,true,1800,2028-12-31,0,Enterprise (HVAPI),HIGH
-25386584,etraveligroup,pod18,2500,1000,30,30,30,293,133,0,0,Enterprise,2537487.04,true,4480,2029-06-30,0,Enterprise (no HVAPI),HIGH
-489599,justeatukpoc,pod29,2500,600,30,30,30,1118,506,5,1,Enterprise,172923.04,true,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
-10884452,xpisupport,pod27,2500,400,30,,,47,8,0,1,Enterprise,183365.15,true,1600,2027-07-14,0,Enterprise (HVAPI),HIGH
-2160448,pixartprinting,pod18,2500,300,45,30,30,333,2,62,1,Enterprise,133256.63,true,1200,2027-09-30,0,Enterprise (HVAPI),HIGH
-25448991,everlywell,pod20,2500,300,30,50,30,1494,2,0,1,Enterprise,284126.64,true,6300,2028-07-18,0,Enterprise (HVAPI),HIGH
-10403604,repmoulton,pod13,2500,300,30,60,,477,4,0,1,Enterprise,1566.11,false,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
-1801676,edgenuity,pod23,2500,300,30,50,30,345,3,0,1,Enterprise,989112.5,true,310,2028-12-31,0,Enterprise (HVAPI),HIGH
-9767107,togetherwork,pod13,2500,300,30,50,,83,12,0,1,Enterprise,699999.96,true,9750,2028-08-31,0,Enterprise (HVAPI),HIGH
-1024340,calendly,pod23,2500,300,30,45,30,2082,77,3,1,Enterprise,338477.82,true,120,2026-12-30,0,Enterprise (HVAPI),HIGH
-9462741,dlp,pod18,2500,300,30,50,30,1166,4,0,1,Enterprise,861146.32,true,646,2034-11-07,0,Enterprise (HVAPI),HIGH
-58910,tags,pod27,2500,300,30,50,30,409,11,0,1,Enterprise,113276.39,false,11825,2027-02-16,0,Enterprise (HVAPI),HIGH
-25850478,atendimento-midway,pod20,2500,,,45,,58,,26,0,Enterprise,473479.59,true,57120,2031-01-02,0,Enterprise (no HVAPI),HIGH
-10592965,mirepglenn,pod19,2500,,,60,,268,,0,1,Enterprise,1566.11,false,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
-10592959,mirepgarza,pod19,2500,,,60,,140,,0,1,Enterprise,1566.11,false,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
-10592958,mirephope,pod13,2500,,,60,,332,,0,1,Enterprise,1566.11,false,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
-10592970,mirepvanwoerkom,pod13,2500,,,60,,310,,0,1,Enterprise,1566.11,false,9999,2027-05-28,0,Enterprise (HVAPI),HIGH
-10592966,mirepjohnson,pod19,2500,,,60,,294,,0,1,Enterprise,,false,9999,,0,Enterprise (HVAPI),HIGH
-10592953,mirephammoud,pod13,2500,,,60,,164,,0,1,Enterprise,1566.11,false,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
-802785,venmo,pod19,700,6000,30,,10,62,29,0,0,Enterprise,206302.68,true,12000,2027-11-01,0,Enterprise (no HVAPI),HIGH
-1360366,bukabantuan,pod25,700,4000,30,,10,138,9,0,0,Enterprise,86475.0,false,2880,2027-04-01,0,Enterprise (no HVAPI),HIGH
-653112,loggibr,pod13,700,4000,30,30,10,667,176,0,0,Enterprise,272882.18,true,390,2027-03-31,0,Enterprise (no HVAPI),HIGH
-276624,gocareem,pod19,700,4000,30,30,,413,83,0,0,Enterprise,1107600.0,false,1100,2027-04-23,0,Enterprise (no HVAPI),HIGH
-121256,offerup,pod20,700,4000,30,,10,700,161,712,0,Enterprise,497445.0,false,165,2027-10-18,0,Enterprise (no HVAPI),HIGH
-2158976,conradsupport,pod17,700,3000,30,,,700,52,18,0,Enterprise,972887.91,true,29200,2026-10-30,0,Enterprise (no HVAPI),HIGH
-2282464,wgglobal,pod18,700,3000,30,30,10,472,15,0,0,Enterprise,145500.3,true,3600,2027-09-30,0,Enterprise (no HVAPI),HIGH
-658257,ebates,pod19,700,3000,30,30,10,132,67,0,0,Enterprise,102140.01,true,112,2028-03-31,0,Enterprise (no HVAPI),HIGH
-265525,activecampaigninc,pod28,700,2000,30,30,10,413,17,0,0,Enterprise,1059600.0,false,505,2026-12-30,0,Enterprise (no HVAPI),HIGH
-1949293,disneyparks,pod23,700,2000,30,30,,22,34,0,0,Enterprise,190426.03,true,39750,2028-03-15,0,Enterprise (no HVAPI),HIGH
-10467,yougov,pod29,700,2000,30,,10,394,28,0,0,Enterprise,245136.0,false,92,2027-02-28,0,Enterprise (no HVAPI),HIGH
-88181,box,pod19,700,2000,30,,,643,22,0,0,Enterprise,392520.0,false,240,2027-07-29,0,Enterprise (no HVAPI),HIGH
-512712,zillow,pod19,700,2000,30,30,10,344,1,0,0,Enterprise,221659.96,false,238,2027-06-30,0,Enterprise (no HVAPI),HIGH
-11290,upwork,pod19,700,1500,30,30,10,438,198,33,0,Enterprise,858955.58,true,564,2027-03-18,0,Enterprise (no HVAPI),HIGH
-354269,amaysimaustralia,pod15,700,100,30,60,10,57,3,0,0,Enterprise,518946.72,true,212,2028-09-20,0,Enterprise (no HVAPI),HIGH
-551876,tamarac,pod27,700,100,30,60,,29,26,0,0,Enterprise,435774.36,true,763,2027-08-15,0,Enterprise (no HVAPI),HIGH
-2075283,pureenrichment,pod27,700,100,30,50,10,107,16,0,0,Enterprise,66000.0,false,19,2027-05-28,0,Enterprise (no HVAPI),HIGH
-9974045,intapp,pod29,700,100,30,50,10,217,7,0,0,Enterprise,217765.8,true,178,2026-09-30,0,Enterprise (no HVAPI),HIGH
-106787,sai360,pod20,700,100,30,50,,12,1,0,0,Enterprise,81111.54,false,70,2027-01-27,0,Enterprise (no HVAPI),HIGH
-477665,ssensesupport,pod19,700,100,30,30,45,57,8,0,0,Enterprise,,,200,2027-03-21,0,Enterprise (no HVAPI),HIGH
-1423738,uslegalsupportwest,pod13,700,100,30,50,,167,133,0,0,Enterprise,886587.56,true,313,2026-10-31,0,Enterprise (no HVAPI),HIGH
-71544,travelnet,pod27,700,100,30,50,,3,2,0,0,Enterprise,119120.04,false,46,2028-09-30,0,Enterprise (no HVAPI),HIGH
-15158276,everbridgesupport,pod27,700,100,150,50,10,147,5,0,0,Enterprise,275692.56,true,206,2035-01-31,0,Enterprise (no HVAPI),HIGH
-10225190,pandarg,pod19,700,,,50,10,27,,0,0,Enterprise,131778.36,true,70,2026-09-30,0,Enterprise (no HVAPI),HIGH
-9567440,copaair,pod23,700,,30,50,,40,,0,0,Enterprise,214785.0,true,211,2028-12-20,0,Enterprise (no HVAPI),HIGH
-323991,civitatis,pod29,400,7000,30,30,,400,9,102,0,Professional,339930.61,false,60,2028-03-24,0,Professional,HIGH
-454327,mecenat1,pod17,400,1500,30,,,9,4,0,0,Professional,29796.0,false,11,2026-08-09,0,Professional,HIGH
-9496080,parquearauco,pod20,400,800,30,,,1,1,0,0,Professional,38640.0,false,40,2026-12-02,0,Professional,HIGH
-1376322,permissions,pod23,400,100,50,,,7,1,0,0,Professional,15759.0,false,17,2027-03-31,0,Professional,HIGH
-971806,yodaforex,pod18,400,100,30,60,,400,2,107,0,Professional,6368.25,false,5,2026-09-30,0,Professional,HIGH
+761341,casounico,pod19,2500,6000,30,30,,416,259,23,1,Enterprise,1994400.0,Premier Enterprise,96000,2027-11-10,0,Enterprise (HVAPI),HIGH
+238765,shopify,pod13,2500,5000,30,30,,619,136,0,1,Enterprise,1070879.16,Premier,6100,2027-05-30,0,Enterprise (HVAPI),HIGH
+34989,ubercab,pod20,2500,4000,30,,,13,5,0,1,Enterprise,238949.6,Premier Enterprise,64800,2027-12-31,0,Enterprise (HVAPI),HIGH
+662885,deliveroo,pod17,2500,3000,30,30,30,1781,5,0,1,Enterprise,1229518.36,Premier Essentials,666,2026-12-10,0,Enterprise (HVAPI),HIGH
+1470967,uberfreight,pod19,2500,3000,30,30,,1500,59,6,1,Enterprise,134681.3,Premier,64800,2027-12-31,0,Enterprise (HVAPI),HIGH
+795717,gcash,pod25,2500,2000,30,30,,1726,777,0,1,Enterprise,1929552.0,Premier,34992,2026-07-31,0,Enterprise (HVAPI),HIGH
+1381317,justeatit,pod29,2500,2000,30,30,,2500,360,806,1,Enterprise,172923.04,Premier,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
+1900697,mediaoceanhelp,pod23,2500,2000,30,,30,54,8,0,1,Enterprise,346601.07,,222,2028-03-31,0,Enterprise (HVAPI),HIGH
+22305,doctorsim,pod28,2500,2000,30,,,364,181,59,1,Professional,6143.4,,12,2028-04-14,0,Enterprise (HVAPI),HIGH
+138842,slack,pod19,2500,2000,60,30,30,603,49,0,1,Enterprise,788133.36,Premier Enterprise,340,2026-12-22,0,Enterprise (HVAPI),HIGH
+2016348,etsy,pod23,2500,2000,30,30,30,1300,153,32,1,Enterprise,744278.22,Premier Enterprise,2100,2036-02-05,0,Enterprise (HVAPI),HIGH
+657902,digitec,pod18,2500,2000,30,30,30,429,9,0,1,Enterprise,819000.0,,28080,2027-12-30,0,Enterprise (HVAPI),HIGH
+1407322,tradeinn,pod28,2500,2000,30,30,,2282,252,0,1,Enterprise,105250.88,,54,2027-07-07,0,Enterprise (HVAPI),HIGH
+222711,prodegesupport,pod20,2500,2000,30,30,30,193,13,1040,1,Enterprise,210000.0,,15,2028-04-28,0,Enterprise (HVAPI),HIGH
+1506503,lbc,pod18,2500,2000,30,30,30,76,2,0,1,Enterprise,636819.29,,330,2027-11-06,0,Enterprise (HVAPI),HIGH
+2363060,atendimentomagazineluiza,pod13,2500,2000,30,30,30,194,46,0,1,Enterprise,81216.42,Premier Enterprise,82253,2028-01-04,0,Enterprise (HVAPI),HIGH
+170270,takealot,pod28,2500,1500,30,,30,2388,1,1,1,Enterprise,4131996.04,Premier Enterprise,1800,2028-12-31,0,Enterprise (HVAPI),HIGH
+626195,skipthedishessupport,pod23,2500,1500,30,30,,278,42,0,1,Enterprise,172923.04,Premier,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
+25386584,etraveligroup,pod18,2500,1000,30,30,30,293,133,0,0,Enterprise,2537487.04,Premier Enterprise,4480,2029-06-30,0,Enterprise (no HVAPI),HIGH
+489599,justeatukpoc,pod29,2500,600,30,30,30,1118,506,5,1,Enterprise,172923.04,Premier,77040,2028-12-01,0,Enterprise (HVAPI),HIGH
+10884452,xpisupport,pod27,2500,400,30,,,47,8,0,1,Enterprise,183365.15,Premier Enterprise,1600,2027-07-14,0,Enterprise (HVAPI),HIGH
+10403604,repmoulton,pod13,2500,300,30,60,,477,4,0,1,Enterprise,1566.11,,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
+9462741,dlp,pod18,2500,300,30,50,30,1166,4,0,1,Enterprise,861146.32,Premier,646,2034-11-07,0,Enterprise (HVAPI),HIGH
+1801676,edgenuity,pod23,2500,300,30,50,30,345,3,0,1,Enterprise,989112.5,Premier Enterprise,310,2028-12-31,0,Enterprise (HVAPI),HIGH
+2160448,pixartprinting,pod18,2500,300,45,30,30,333,2,62,1,Enterprise,133256.63,Premier,1200,2027-09-30,0,Enterprise (HVAPI),HIGH
+58910,tags,pod27,2500,300,30,50,30,409,11,0,1,Enterprise,113276.39,,11825,2027-02-16,0,Enterprise (HVAPI),HIGH
+9767107,togetherwork,pod13,2500,300,30,50,,83,12,0,1,Enterprise,699999.96,Premier,9750,2028-08-31,0,Enterprise (HVAPI),HIGH
+1024340,calendly,pod23,2500,300,30,45,30,2082,77,3,1,Enterprise,338477.82,Premier,120,2026-12-30,0,Enterprise (HVAPI),HIGH
+25448991,everlywell,pod20,2500,300,30,50,30,1494,2,0,1,Enterprise,284126.64,Premier Essentials,6300,2028-07-18,0,Enterprise (HVAPI),HIGH
+10592970,mirepvanwoerkom,pod13,2500,,,60,,310,,0,1,Enterprise,1566.11,,9999,2027-05-28,0,Enterprise (HVAPI),HIGH
+10592953,mirephammoud,pod13,2500,,,60,,164,,0,1,Enterprise,1566.11,,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
+10592966,mirepjohnson,pod19,2500,,,60,,294,,0,1,Enterprise,,,9999,,0,Enterprise (HVAPI),HIGH
+10592958,mirephope,pod13,2500,,,60,,332,,0,1,Enterprise,1566.11,,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
+10592965,mirepglenn,pod19,2500,,,60,,268,,0,1,Enterprise,1566.11,,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
+10592959,mirepgarza,pod19,2500,,,60,,140,,0,1,Enterprise,1566.11,,9999,2026-11-28,0,Enterprise (HVAPI),HIGH
+25850478,atendimento-midway,pod20,2500,,,45,,58,,26,0,Enterprise,473479.59,Premier Enterprise,57120,2031-01-02,0,Enterprise (no HVAPI),HIGH
+802785,venmo,pod19,700,6000,30,,10,62,29,0,0,Enterprise,206302.68,Premier,12000,2027-11-01,0,Enterprise (no HVAPI),HIGH
+121256,offerup,pod20,700,4000,30,,10,700,161,712,0,Enterprise,497445.0,,165,2027-10-18,0,Enterprise (no HVAPI),HIGH
+1360366,bukabantuan,pod25,700,4000,30,,10,138,9,0,0,Enterprise,86475.0,,2880,2027-04-01,0,Enterprise (no HVAPI),HIGH
+653112,loggibr,pod13,700,4000,30,30,10,667,176,0,0,Enterprise,272882.18,Premier Essentials,390,2027-03-31,0,Enterprise (no HVAPI),HIGH
+276624,gocareem,pod19,700,4000,30,30,,413,83,0,0,Enterprise,1107600.0,,1100,2027-04-23,0,Enterprise (no HVAPI),HIGH
+658257,ebates,pod19,700,3000,30,30,10,132,67,0,0,Enterprise,102140.01,Premier,112,2028-03-31,0,Enterprise (no HVAPI),HIGH
+2282464,wgglobal,pod18,700,3000,30,30,10,472,15,0,0,Enterprise,145500.3,Premier Essentials,3600,2027-09-30,0,Enterprise (no HVAPI),HIGH
+2158976,conradsupport,pod17,700,3000,30,,,700,52,18,0,Enterprise,972887.91,Premier,29200,2026-10-30,0,Enterprise (no HVAPI),HIGH
+265525,activecampaigninc,pod28,700,2000,30,30,10,413,17,0,0,Enterprise,1059600.0,,505,2026-12-30,0,Enterprise (no HVAPI),HIGH
+1949293,disneyparks,pod23,700,2000,30,30,,22,34,0,0,Enterprise,190426.03,Premier Enterprise,39750,2028-03-15,0,Enterprise (no HVAPI),HIGH
+512712,zillow,pod19,700,2000,30,30,10,344,1,0,0,Enterprise,221659.96,,238,2027-06-30,0,Enterprise (no HVAPI),HIGH
+88181,box,pod19,700,2000,30,,,643,22,0,0,Enterprise,392520.0,,240,2027-07-29,0,Enterprise (no HVAPI),HIGH
+10467,yougov,pod29,700,2000,30,,10,394,28,0,0,Enterprise,245136.0,,92,2027-02-28,0,Enterprise (no HVAPI),HIGH
+11290,upwork,pod19,700,1500,30,30,10,438,198,33,0,Enterprise,858955.58,Premier Enterprise,564,2027-03-18,0,Enterprise (no HVAPI),HIGH
+477665,ssensesupport,pod19,700,100,30,30,45,57,8,0,0,Enterprise,,Premier,200,2027-03-21,0,Enterprise (no HVAPI),HIGH
+71544,travelnet,pod27,700,100,30,50,,3,2,0,0,Enterprise,119120.04,,46,2028-09-30,0,Enterprise (no HVAPI),HIGH
+551876,tamarac,pod27,700,100,30,60,,29,26,0,0,Enterprise,435774.36,Premier,763,2027-08-15,0,Enterprise (no HVAPI),HIGH
+354269,amaysimaustralia,pod15,700,100,30,60,10,57,3,0,0,Enterprise,518946.72,Premier,212,2028-09-20,0,Enterprise (no HVAPI),HIGH
+106787,sai360,pod20,700,100,30,50,,12,1,0,0,Enterprise,81111.54,,70,2027-01-27,0,Enterprise (no HVAPI),HIGH
+9974045,intapp,pod29,700,100,30,50,10,217,7,0,0,Enterprise,217765.8,Premier Essentials,178,2026-09-30,0,Enterprise (no HVAPI),HIGH
+1423738,uslegalsupportwest,pod13,700,100,30,50,,167,133,0,0,Enterprise,886587.56,Premier,313,2026-10-31,0,Enterprise (no HVAPI),HIGH
+2075283,pureenrichment,pod27,700,100,30,50,10,107,16,0,0,Enterprise,66000.0,,19,2027-05-28,0,Enterprise (no HVAPI),HIGH
+15158276,everbridgesupport,pod27,700,100,150,50,10,147,5,0,0,Enterprise,275692.56,Premier Essentials,206,2035-01-31,0,Enterprise (no HVAPI),HIGH
+10225190,pandarg,pod19,700,,,50,10,27,,0,0,Enterprise,131778.36,Premier Essentials,70,2026-09-30,0,Enterprise (no HVAPI),HIGH
+9567440,copaair,pod23,700,,30,50,,40,,0,0,Enterprise,214785.0,Premier,211,2028-12-20,0,Enterprise (no HVAPI),HIGH
+323991,civitatis,pod29,400,7000,30,30,,400,9,102,0,Professional,339930.61,,60,2028-03-24,0,Professional,HIGH
+454327,mecenat1,pod17,400,1500,30,,,9,4,0,0,Professional,29796.0,,11,2026-08-09,0,Professional,HIGH
+9496080,parquearauco,pod20,400,800,30,,,1,1,0,0,Professional,38640.0,,40,2026-12-02,0,Professional,HIGH
+971806,yodaforex,pod18,400,100,30,60,,400,2,107,0,Professional,6368.25,,5,2026-09-30,0,Professional,HIGH
+1376322,permissions,pod23,400,100,50,,,7,1,0,0,Professional,15759.0,,17,2027-03-31,0,Professional,HIGH
 26705161,freelance-26992,pod25,400,20,80,30,,25,1,0,0,Unknown,,,,,0,Unknown,HIGH
-16397189,pacificdebt,pod23,400,,80,,,1,,0,0,Professional,32448.0,false,13,2029-04-30,0,Professional,HIGH
-24136733,acciona-aunz-bsa,pod19,400,,80,,,1,,0,0,Professional,9136.68,false,7,2026-12-05,0,Professional,HIGH
+16397189,pacificdebt,pod23,400,,80,,,1,,0,0,Professional,32448.0,,13,2029-04-30,0,Professional,HIGH
+24136733,acciona-aunz-bsa,pod19,400,,80,,,1,,0,0,Professional,9136.68,,7,2026-12-05,0,Professional,HIGH

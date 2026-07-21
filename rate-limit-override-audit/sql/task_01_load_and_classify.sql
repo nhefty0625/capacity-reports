@@ -26,6 +26,11 @@ CREATE TABLE raw_sandboxes AS
 SELECT *
 FROM read_csv_auto('data/sandbox_accounts.csv', header=true);
 
+-- Load premier tier classifications
+CREATE TABLE raw_premier_tier AS
+SELECT *
+FROM read_csv_auto('data/premier_tier.csv', header=true);
+
 -- Pivot to one row per account with HVAPI flag and plan tier
 CREATE TABLE account_features AS
 SELECT
@@ -52,7 +57,7 @@ SELECT
     COALESCE(f.has_hvapi, 0) AS has_hvapi,
     COALESCE(f.support_plan, 'Unknown') AS support_plan,
     aa.ARR,
-    aa.IS_PREMIER,
+    COALESCE(pt.PREMIER_TIER, CASE WHEN aa.IS_PREMIER = 'true' THEN 'Premier' ELSE NULL END) AS PREMIER_TIER,
     aa.AGENT_COUNT,
     r.CONTRACT_RENEWAL_DATE,
     CASE WHEN s.INSTANCE_ACCOUNT_ID IS NOT NULL THEN 1 ELSE 0 END AS is_sandbox,
@@ -83,7 +88,8 @@ FROM raw_elevated e
 LEFT JOIN account_features f ON e.INSTANCE_ACCOUNT_ID = f.INSTANCE_ACCOUNT_ID
 LEFT JOIN raw_arr_agents aa ON e.INSTANCE_ACCOUNT_ID = aa.INSTANCE_ACCOUNT_ID
 LEFT JOIN raw_renewals r ON e.INSTANCE_ACCOUNT_ID = r.INSTANCE_ACCOUNT_ID
-LEFT JOIN raw_sandboxes s ON e.INSTANCE_ACCOUNT_ID = s.INSTANCE_ACCOUNT_ID;
+LEFT JOIN raw_sandboxes s ON e.INSTANCE_ACCOUNT_ID = s.INSTANCE_ACCOUNT_ID
+LEFT JOIN raw_premier_tier pt ON e.INSTANCE_ACCOUNT_ID = pt.INSTANCE_ACCOUNT_ID;
 
 -- Summary by concern level and plan tier (non-sandbox)
 CREATE TABLE agg_concern_summary AS
