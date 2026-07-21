@@ -1,0 +1,271 @@
+---
+title: "Rate Limit Override Audit"
+subtitle: "Customers with elevated rate limits beyond plan entitlement"
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    theme: cosmo
+    page-layout: full
+    grid:
+      body-width: 1800px
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<style>
+@media (min-width: 1200px) {
+  #quarto-content.page-columns {
+    display: grid !important;
+    grid-template-columns: 250px 1fr !important;
+    gap: 2em !important;
+  }
+  #quarto-sidebar {
+    grid-column: 1 !important;
+    position: sticky !important;
+    top: 1rem !important;
+    height: fit-content !important;
+  }
+  #quarto-document-content {
+    grid-column: 2 !important;
+    max-width: 100% !important;
+  }
+}
+.column-body { max-width: 100% !important; }
+div.cell-output-display { width: 100% !important; }
+.concern-high { background-color: #fee2e2; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+.concern-medium { background-color: #fef3c7; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
+.concern-normal { background-color: #d1fae5; padding: 2px 8px; border-radius: 4px; }
+</style>
+```
+
+```{ojs}
+//| echo: false
+
+summaryData = FileAttachment("data/agg_concern_summary.csv").csv({typed: true})
+highData = FileAttachment("data/high_concern.csv").csv({typed: true})
+mediumData = FileAttachment("data/medium_concern.csv").csv({typed: true})
+allData = FileAttachment("data/agg_all_classified.csv").csv({typed: true})
+sandboxData = FileAttachment("data/sandbox_elevated.csv").csv({typed: true})
+```
+
+## Executive Summary
+
+Accounts with rate limits elevated above their plan entitlement defaults.
+
+```{ojs}
+//| echo: false
+
+highCount = highData.length
+mediumCount = mediumData.length
+totalElevated = allData.length
+
+md`
+| Concern Level | Count | Description |
+|:---|---:|:---|
+| **HIGH** | ${highCount} | Above HVAPI standard (>2500 global, >300 threshold, >30 per-ticket/bulk/incremental) |
+| **MEDIUM** | ${mediumCount} | At HVAPI level (2500 or 300) without HVAPI addon |
+| **Normal** | ${totalElevated - highCount - mediumCount} | Elevated but within plan entitlement |
+| **Total Elevated** | ${totalElevated} | All accounts above base defaults |`
+```
+
+**Downloads:** [HIGH concern](data/high_concern.csv) | [MEDIUM concern](data/medium_concern.csv) | [Sandboxes](data/sandbox_elevated.csv) | [All classified](data/agg_all_classified.csv) | [Summary](data/agg_concern_summary.csv)
+
+
+## Concern Level Breakdown
+
+```{ojs}
+//| echo: false
+
+Plot.plot({
+  height: 300,
+  marginLeft: 150,
+  x: {label: "Number of Accounts"},
+  y: {label: null},
+  color: {domain: ["HIGH", "MEDIUM", "NORMAL"], range: ["#dc2626", "#d97706", "#059669"]},
+  marks: [
+    Plot.barX(summaryData, Plot.groupY({x: "sum"}, {
+      y: "concern_level",
+      x: "num_accounts",
+      fill: "concern_level",
+      sort: {y: "-x"}
+    })),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+### By Plan Tier
+
+```{ojs}
+//| echo: false
+
+Plot.plot({
+  height: 400,
+  marginLeft: 200,
+  x: {label: "Number of Accounts"},
+  y: {label: null},
+  color: {domain: ["HIGH", "MEDIUM", "NORMAL"], range: ["#dc2626", "#d97706", "#059669"]},
+  marks: [
+    Plot.barX(summaryData, {
+      y: "plan_tier",
+      x: "num_accounts",
+      fill: "concern_level",
+      sort: {y: "-x"}
+    }),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+
+## HIGH Concern Accounts
+
+Accounts with rate limits **above** HVAPI standard (>2500 global API, >300 ticket threshold, >30 per-ticket/bulk/incremental). These are custom overrides that exceed what any standard plan provides.
+
+```{ojs}
+//| echo: false
+
+viewof highFilter = Inputs.select(
+  ["All", ...new Set(highData.map(d => d.plan_tier))],
+  {label: "Filter by plan tier:", value: "All"}
+)
+
+filteredHigh = highFilter === "All" ? highData : highData.filter(d => d.plan_tier === highFilter)
+
+Inputs.table(filteredHigh, {
+  columns: [
+    "INSTANCE_ACCOUNT_SUBDOMAIN",
+    "INSTANCE_ACCOUNT_POD_ID",
+    "plan_tier",
+    "has_hvapi",
+    "SUBSCRIPTION_RATE_LIMIT",
+    "TICKETS_UPDATE_LIMIT",
+    "PER_TICKET_UPDATES_LIMIT",
+    "INFLIGHT_JOBS_LIMIT",
+    "INCREMENTAL_EXPORTS_LIMIT",
+    "ERRORS_429_COUNT"
+  ],
+  header: {
+    INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
+    INSTANCE_ACCOUNT_POD_ID: "Pod",
+    plan_tier: "Plan Tier",
+    has_hvapi: "HVAPI?",
+    SUBSCRIPTION_RATE_LIMIT: "Global API",
+    TICKETS_UPDATE_LIMIT: "Ticket Threshold",
+    PER_TICKET_UPDATES_LIMIT: "Per-Ticket",
+    INFLIGHT_JOBS_LIMIT: "Bulk Jobs",
+    INCREMENTAL_EXPORTS_LIMIT: "Incremental",
+    ERRORS_429_COUNT: "429 Errors"
+  },
+  sort: "SUBSCRIPTION_RATE_LIMIT",
+  reverse: true,
+  rows: 50
+})
+```
+
+
+## MEDIUM Concern Accounts
+
+Accounts at **HVAPI standard** limits (2500 RPM global or 300 ticket threshold) but **without** the HVAPI addon. These may be legacy overrides or deals that should have been cleaned up.
+
+```{ojs}
+//| echo: false
+
+Inputs.table(mediumData, {
+  columns: [
+    "INSTANCE_ACCOUNT_SUBDOMAIN",
+    "INSTANCE_ACCOUNT_POD_ID",
+    "plan_tier",
+    "SUBSCRIPTION_RATE_LIMIT",
+    "TICKETS_UPDATE_LIMIT",
+    "PER_TICKET_UPDATES_LIMIT",
+    "INFLIGHT_JOBS_LIMIT",
+    "INCREMENTAL_EXPORTS_LIMIT",
+    "ERRORS_429_COUNT"
+  ],
+  header: {
+    INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
+    INSTANCE_ACCOUNT_POD_ID: "Pod",
+    plan_tier: "Plan Tier",
+    SUBSCRIPTION_RATE_LIMIT: "Global API",
+    TICKETS_UPDATE_LIMIT: "Ticket Threshold",
+    PER_TICKET_UPDATES_LIMIT: "Per-Ticket",
+    INFLIGHT_JOBS_LIMIT: "Bulk Jobs",
+    INCREMENTAL_EXPORTS_LIMIT: "Incremental",
+    ERRORS_429_COUNT: "429 Errors"
+  },
+  sort: "SUBSCRIPTION_RATE_LIMIT",
+  reverse: true,
+  rows: 50
+})
+```
+
+
+## Sandbox Accounts
+
+Accounts identified as sandboxes via `INSTANCE_ACCOUNT_SANDBOX_MASTER_ID`. These inherit rate limit overrides from their production parent or have been independently overridden. Separated from the main report since they typically don't need independent audit.
+
+```{ojs}
+//| echo: false
+
+md`**${sandboxData.length} sandbox accounts** with elevated rate limits (excluded from main tables above).`
+
+Inputs.table(sandboxData, {
+  columns: [
+    "INSTANCE_ACCOUNT_SUBDOMAIN",
+    "concern_level",
+    "plan_tier",
+    "SUBSCRIPTION_RATE_LIMIT",
+    "TICKETS_UPDATE_LIMIT",
+    "PER_TICKET_UPDATES_LIMIT",
+    "INFLIGHT_JOBS_LIMIT",
+    "INCREMENTAL_EXPORTS_LIMIT"
+  ],
+  header: {
+    INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
+    concern_level: "Concern",
+    plan_tier: "Plan Tier",
+    SUBSCRIPTION_RATE_LIMIT: "Global API",
+    TICKETS_UPDATE_LIMIT: "Ticket Threshold",
+    PER_TICKET_UPDATES_LIMIT: "Per-Ticket",
+    INFLIGHT_JOBS_LIMIT: "Bulk Jobs",
+    INCREMENTAL_EXPORTS_LIMIT: "Incremental"
+  },
+  sort: "SUBSCRIPTION_RATE_LIMIT",
+  reverse: true,
+  rows: 30
+})
+```
+
+
+## Methodology
+
+### Thresholds
+
+| Category | Default | HVAPI Default | "Elevated" = above |
+|:---|---:|---:|:---|
+| Global API (RPM) | 200/400/700 | 2500 | 700 |
+| Ticket Updates Threshold | 20/100 | 300 | 100 |
+| Per-Ticket Update Rate Limit | 30 | 30 | 30 |
+| Bulk Jobs (Inflight) | 30 | 30 | 30 |
+| Incremental Exports | 10/30 | 30 | 30 |
+
+### Classification Logic
+
+- **HIGH**: Any limit above HVAPI standard (>2500, >300, or >30 for per-ticket/bulk/incremental)
+- **MEDIUM**: At HVAPI level (2500 global OR 300 threshold) without `high_volume_api` subscription feature
+- **NORMAL**: Elevated above base plan default but within their plan entitlement
+
+### Data Sources
+
+| Source | Description |
+|:---|:---|
+| `FACT_CAPACITY_AGGREGATED_API_USAGE_DATA_DAILY_SNAPSHOT` | Current effective rate limits per account |
+| `BASE_SUBSCRIPTION_FEATURES` | Subscription feature flags (HVAPI, plan tier) |

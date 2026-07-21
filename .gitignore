@@ -4,3 +4,5 @@
 .DS_Store
 .agent-shell/
 PLAN-*.md
+
+**/*.quarto_ipynb

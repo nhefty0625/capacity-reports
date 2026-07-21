@@ -2,8 +2,9 @@
 title: "Reports"
 ---
 
-Welcome to your reports site. Use `/new_project` in Claude Code to create your first analysis project.
+Welcome to your reports site.
 
 ## Reports
 
-_No reports yet. Run `/new_project "My Analysis" Description of the analysis` to get started._
+- [Customer Rate Limit Report](customer-rate-limit-report/customer-rate-limit-report.qmd) -- Analysis of customer rate limiting patterns and trends
+- [Datadog 4XX Error Analysis](datadog-4xx-error-analysis/datadog-4xx-error-analysis.qmd) -- 4XX error patterns by subdomain identifying problematic integrations and workflows

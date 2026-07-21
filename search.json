@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "customer-rate-limit-report/customer-rate-limit-report.html",
+    "href": "customer-rate-limit-report/customer-rate-limit-report.html",
+    "title": "Customer Rate Limit Report",
+    "section": "",
+    "text": "summary = FileAttachment(\"data/agg_summary.csv\").csv({typed: true})\ndetailRaw = FileAttachment(\"data/agg_detail.csv\").csv()\ndetail = detailRaw.map(d =&gt; ({\n  ...d,\n  tickets_update_limit: +d.tickets_update_limit,\n  tickets_update_used: +d.tickets_update_used,\n  errors_429_count: +d.errors_429_count\n}))"
+  },
+  {
+    "objectID": "customer-rate-limit-report/customer-rate-limit-report.html#executive-summary",
+    "href": "customer-rate-limit-report/customer-rate-limit-report.html#executive-summary",
+    "title": "Customer Rate Limit Report",
+    "section": "Executive Summary",
+    "text": "Executive Summary\nCustomers with ticket update limits below 5,000 who are actively hitting rate limits (HTTP 429 errors). Filtered to accounts created before July 2019 with more than 300 ticket updates used.\n\ntotalAccounts = detail.length\ntotal429Errors = d3.sum(detail, d =&gt; d.errors_429_count)\navgTicketsUsed = Math.round(d3.mean(detail, d =&gt; d.tickets_update_used))\n\nmd`\n| Metric | Value |\n|--------|-------|\n| **Accounts affected** | ${totalAccounts.toLocaleString()} |\n| **Total 429 errors** | ${total429Errors.toLocaleString()} |\n| **Avg tickets used** | ${avgTicketsUsed.toLocaleString()} |`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDownload data: Summary (CSV) | Detail (CSV)"
+  },
+  {
+    "objectID": "customer-rate-limit-report/customer-rate-limit-report.html#accounts-by-rate-limit-tier",
+    "href": "customer-rate-limit-report/customer-rate-limit-report.html#accounts-by-rate-limit-tier",
+    "title": "Customer Rate Limit Report",
+    "section": "Accounts by Rate Limit Tier",
+    "text": "Accounts by Rate Limit Tier\n\nPlot.plot({\n  height: 350,\n  marginLeft: 200,\n  marginRight: 80,\n  x: {label: \"Number of Accounts\"},\n  y: {label: null},\n  marks: [\n    Plot.barX(summary, {\n      y: \"category\",\n      x: \"count\",\n      fill: \"category\",\n      sort: {y: \"-x\"}\n    }),\n    Plot.text(summary, {\n      y: \"category\",\n      x: \"count\",\n      text: d =&gt; d.count.toLocaleString(),\n      dx: 5,\n      textAnchor: \"start\"\n    }),\n    Plot.ruleX([0])\n  ]\n})"
+  },
+  {
+    "objectID": "customer-rate-limit-report/customer-rate-limit-report.html#errors-by-limit-tier",
+    "href": "customer-rate-limit-report/customer-rate-limit-report.html#errors-by-limit-tier",
+    "title": "Customer Rate Limit Report",
+    "section": "429 Errors by Limit Tier",
+    "text": "429 Errors by Limit Tier\n\nPlot.plot({\n  height: 350,\n  marginLeft: 200,\n  marginRight: 80,\n  x: {label: \"Total 429 Errors\"},\n  y: {label: null},\n  marks: [\n    Plot.barX(summary, {\n      y: \"category\",\n      x: \"total_429_errors\",\n      fill: \"category\",\n      sort: {y: \"-x\"}\n    }),\n    Plot.text(summary, {\n      y: \"category\",\n      x: \"total_429_errors\",\n      text: d =&gt; d.total_429_errors.toLocaleString(),\n      dx: 5,\n      textAnchor: \"start\"\n    }),\n    Plot.ruleX([0])\n  ]\n})"
+  },
+  {
+    "objectID": "customer-rate-limit-report/customer-rate-limit-report.html#detail-table",
+    "href": "customer-rate-limit-report/customer-rate-limit-report.html#detail-table",
+    "title": "Customer Rate Limit Report",
+    "section": "Detail Table",
+    "text": "Detail Table\n\nInputs.table(detail, {\n  columns: [\n    \"instance_account_id\",\n    \"instance_account_name\",\n    \"tickets_update_limit\",\n    \"tickets_update_used\",\n    \"errors_429_count\"\n  ],\n  header: {\n    instance_account_id: \"Account ID\",\n    instance_account_name: \"Account Name\",\n    tickets_update_limit: \"Update Limit\",\n    tickets_update_used: \"Updates Used\",\n    errors_429_count: \"429 Errors\"\n  },\n  format: {\n    instance_account_id: x =&gt; x\n  },\n  sort: \"errors_429_count\",\n  reverse: true,\n  rows: 25\n})"
+  },
+  {
+    "objectID": "customer-rate-limit-report/customer-rate-limit-report.html#methodology",
+    "href": "customer-rate-limit-report/customer-rate-limit-report.html#methodology",
+    "title": "Customer Rate Limit Report",
+    "section": "Methodology",
+    "text": "Methodology\n\nData Sources\n\n\n\n\n\n\n\nSource\nDescription\n\n\n\n\nFACT_CAPACITY_AGGREGATED_API_USAGE_DATA_DAILY_SNAPSHOT\nDaily API usage with rate limit and 429 error counts\n\n\nBASE_INSTANCE_ACCOUNTS\nAccount metadata (name, creation date)\n\n\n\n\n\nFilters\n\nAccounts created before 2019-07-01\nTicket update limit &lt; 5,000\nTicket updates used &gt; 300\nAt least 1 HTTP 429 error\nOne row per account (highest 429 error count)"
+  },
+  {
+    "objectID": "rate-limit-override-audit/rate-limit-override-audit.html",
+    "href": "rate-limit-override-audit/rate-limit-override-audit.html",
+    "title": "Rate Limit Override Audit",
+    "section": "",
+    "text": "summaryData = FileAttachment(\"data/agg_concern_summary.csv\").csv({typed: true})\nhighData = FileAttachment(\"data/high_concern.csv\").csv({typed: true})\nmediumData = FileAttachment(\"data/medium_concern.csv\").csv({typed: true})\nallData = FileAttachment(\"data/agg_all_classified.csv\").csv({typed: true})\nsandboxData = FileAttachment(\"data/sandbox_elevated.csv\").csv({typed: true})"
+  },
+  {
+    "objectID": "rate-limit-override-audit/rate-limit-override-audit.html#executive-summary",
+    "href": "rate-limit-override-audit/rate-limit-override-audit.html#executive-summary",
+    "title": "Rate Limit Override Audit",
+    "section": "Executive Summary",
+    "text": "Executive Summary\nAccounts with rate limits elevated above their plan entitlement defaults.\n\nhighCount = highData.length\nmediumCount = mediumData.length\ntotalElevated = allData.length\n\nmd`\n| Concern Level | Count | Description |\n|:---|---:|:---|\n| **HIGH** | ${highCount} | Above HVAPI standard (&gt;2500 global, &gt;300 threshold, &gt;30 per-ticket/bulk/incremental) |\n| **MEDIUM** | ${mediumCount} | At HVAPI level (2500 or 300) without HVAPI addon |\n| **Normal** | ${totalElevated - highCount - mediumCount} | Elevated but within plan entitlement |\n| **Total Elevated** | ${totalElevated} | All accounts above base defaults |`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDownloads: HIGH concern | MEDIUM concern | Sandboxes | All classified | Summary"
+  },
+  {
+    "objectID": "rate-limit-override-audit/rate-limit-override-audit.html#concern-level-breakdown",
+    "href": "rate-limit-override-audit/rate-limit-override-audit.html#concern-level-breakdown",
+    "title": "Rate Limit Override Audit",
+    "section": "Concern Level Breakdown",
+    "text": "Concern Level Breakdown\n\nPlot.plot({\n  height: 300,\n  marginLeft: 150,\n  x: {label: \"Number of Accounts\"},\n  y: {label: null},\n  color: {domain: [\"HIGH\", \"MEDIUM\", \"NORMAL\"], range: [\"#dc2626\", \"#d97706\", \"#059669\"]},\n  marks: [\n    Plot.barX(summaryData, Plot.groupY({x: \"sum\"}, {\n      y: \"concern_level\",\n      x: \"num_accounts\",\n      fill: \"concern_level\",\n      sort: {y: \"-x\"}\n    })),\n    Plot.ruleX([0])\n  ]\n})\n\n\n\n\n\n\n\nBy Plan Tier\n\nPlot.plot({\n  height: 400,\n  marginLeft: 200,\n  x: {label: \"Number of Accounts\"},\n  y: {label: null},\n  color: {domain: [\"HIGH\", \"MEDIUM\", \"NORMAL\"], range: [\"#dc2626\", \"#d97706\", \"#059669\"]},\n  marks: [\n    Plot.barX(summaryData, {\n      y: \"plan_tier\",\n      x: \"num_accounts\",\n      fill: \"concern_level\",\n      sort: {y: \"-x\"}\n    }),\n    Plot.ruleX([0])\n  ]\n})"
+  },
+  {
+    "objectID": "rate-limit-override-audit/rate-limit-override-audit.html#high-concern-accounts",
+    "href": "rate-limit-override-audit/rate-limit-override-audit.html#high-concern-accounts",
+    "title": "Rate Limit Override Audit",
+    "section": "HIGH Concern Accounts",
+    "text": "HIGH Concern Accounts\nAccounts with rate limits above HVAPI standard (&gt;2500 global API, &gt;300 ticket threshold, &gt;30 per-ticket/bulk/incremental). These are custom overrides that exceed what any standard plan provides.\n\nviewof highFilter = Inputs.select(\n  [\"All\", ...new Set(highData.map(d =&gt; d.plan_tier))],\n  {label: \"Filter by plan tier:\", value: \"All\"}\n)\n\nfilteredHigh = highFilter === \"All\" ? highData : highData.filter(d =&gt; d.plan_tier === highFilter)\n\nInputs.table(filteredHigh, {\n  columns: [\n    \"INSTANCE_ACCOUNT_SUBDOMAIN\",\n    \"INSTANCE_ACCOUNT_POD_ID\",\n    \"plan_tier\",\n    \"has_hvapi\",\n    \"SUBSCRIPTION_RATE_LIMIT\",\n    \"TICKETS_UPDATE_LIMIT\",\n    \"PER_TICKET_UPDATES_LIMIT\",\n    \"INFLIGHT_JOBS_LIMIT\",\n    \"INCREMENTAL_EXPORTS_LIMIT\",\n    \"ERRORS_429_COUNT\"\n  ],\n  header: {\n    INSTANCE_ACCOUNT_SUBDOMAIN: \"Subdomain\",\n    INSTANCE_ACCOUNT_POD_ID: \"Pod\",\n    plan_tier: \"Plan Tier\",\n    has_hvapi: \"HVAPI?\",\n    SUBSCRIPTION_RATE_LIMIT: \"Global API\",\n    TICKETS_UPDATE_LIMIT: \"Ticket Threshold\",\n    PER_TICKET_UPDATES_LIMIT: \"Per-Ticket\",\n    INFLIGHT_JOBS_LIMIT: \"Bulk Jobs\",\n    INCREMENTAL_EXPORTS_LIMIT: \"Incremental\",\n    ERRORS_429_COUNT: \"429 Errors\"\n  },\n  sort: \"SUBSCRIPTION_RATE_LIMIT\",\n  reverse: true,\n  rows: 50\n})"
+  },
+  {
+    "objectID": "rate-limit-override-audit/rate-limit-override-audit.html#medium-concern-accounts",
+    "href": "rate-limit-override-audit/rate-limit-override-audit.html#medium-concern-accounts",
+    "title": "Rate Limit Override Audit",
+    "section": "MEDIUM Concern Accounts",
+    "text": "MEDIUM Concern Accounts\nAccounts at HVAPI standard limits (2500 RPM global or 300 ticket threshold) but without the HVAPI addon. These may be legacy overrides or deals that should have been cleaned up.\n\nInputs.table(mediumData, {\n  columns: [\n    \"INSTANCE_ACCOUNT_SUBDOMAIN\",\n    \"INSTANCE_ACCOUNT_POD_ID\",\n    \"plan_tier\",\n    \"SUBSCRIPTION_RATE_LIMIT\",\n    \"TICKETS_UPDATE_LIMIT\",\n    \"PER_TICKET_UPDATES_LIMIT\",\n    \"INFLIGHT_JOBS_LIMIT\",\n    \"INCREMENTAL_EXPORTS_LIMIT\",\n    \"ERRORS_429_COUNT\"\n  ],\n  header: {\n    INSTANCE_ACCOUNT_SUBDOMAIN: \"Subdomain\",\n    INSTANCE_ACCOUNT_POD_ID: \"Pod\",\n    plan_tier: \"Plan Tier\",\n    SUBSCRIPTION_RATE_LIMIT: \"Global API\",\n    TICKETS_UPDATE_LIMIT: \"Ticket Threshold\",\n    PER_TICKET_UPDATES_LIMIT: \"Per-Ticket\",\n    INFLIGHT_JOBS_LIMIT: \"Bulk Jobs\",\n    INCREMENTAL_EXPORTS_LIMIT: \"Incremental\",\n    ERRORS_429_COUNT: \"429 Errors\"\n  },\n  sort: \"SUBSCRIPTION_RATE_LIMIT\",\n  reverse: true,\n  rows: 50\n})"
+  },
+  {
+    "objectID": "rate-limit-override-audit/rate-limit-override-audit.html#methodology",
+    "href": "rate-limit-override-audit/rate-limit-override-audit.html#methodology",
+    "title": "Rate Limit Override Audit",
+    "section": "Methodology",
+    "text": "Methodology\n\nThresholds\n\n\n\nCategory\nDefault\nHVAPI Default\n“Elevated” = above\n\n\n\n\nGlobal API (RPM)\n200/400/700\n2500\n700\n\n\nTicket Updates Threshold\n20/100\n300\n100\n\n\nPer-Ticket Update Rate Limit\n30\n30\n30\n\n\nBulk Jobs (Inflight)\n30\n30\n30\n\n\nIncremental Exports\n10/30\n30\n30\n\n\n\n\n\nClassification Logic\n\nHIGH: Any limit above HVAPI standard (&gt;2500, &gt;300, or &gt;30 for per-ticket/bulk/incremental)\nMEDIUM: At HVAPI level (2500 global OR 300 threshold) without high_volume_api subscription feature\nNORMAL: Elevated above base plan default but within their plan entitlement\n\n\n\nData Sources\n\n\n\n\n\n\n\nSource\nDescription\n\n\n\n\nFACT_CAPACITY_AGGREGATED_API_USAGE_DATA_DAILY_SNAPSHOT\nCurrent effective rate limits per account\n\n\nBASE_SUBSCRIPTION_FEATURES\nSubscription feature flags (HVAPI, plan tier)"
+  },
+  {
+    "objectID": "rate-limit-override-audit/rate-limit-override-audit.html#sandbox-accounts",
+    "href": "rate-limit-override-audit/rate-limit-override-audit.html#sandbox-accounts",
+    "title": "Rate Limit Override Audit",
+    "section": "Sandbox Accounts",
+    "text": "Sandbox Accounts\nAccounts identified as sandboxes via INSTANCE_ACCOUNT_SANDBOX_MASTER_ID. These inherit rate limit overrides from their production parent or have been independently overridden. Separated from the main report since they typically don’t need independent audit.\n\nmd`**${sandboxData.length} sandbox accounts** with elevated rate limits (excluded from main tables above).`\n\n\n\n\n\n\n\nInputs.table(sandboxData, {\n  columns: [\n    \"INSTANCE_ACCOUNT_SUBDOMAIN\",\n    \"concern_level\",\n    \"plan_tier\",\n    \"SUBSCRIPTION_RATE_LIMIT\",\n    \"TICKETS_UPDATE_LIMIT\",\n    \"PER_TICKET_UPDATES_LIMIT\",\n    \"INFLIGHT_JOBS_LIMIT\",\n    \"INCREMENTAL_EXPORTS_LIMIT\"\n  ],\n  header: {\n    INSTANCE_ACCOUNT_SUBDOMAIN: \"Subdomain\",\n    concern_level: \"Concern\",\n    plan_tier: \"Plan Tier\",\n    SUBSCRIPTION_RATE_LIMIT: \"Global API\",\n    TICKETS_UPDATE_LIMIT: \"Ticket Threshold\",\n    PER_TICKET_UPDATES_LIMIT: \"Per-Ticket\",\n    INFLIGHT_JOBS_LIMIT: \"Bulk Jobs\",\n    INCREMENTAL_EXPORTS_LIMIT: \"Incremental\"\n  },\n  sort: \"SUBSCRIPTION_RATE_LIMIT\",\n  reverse: true,\n  rows: 30\n})"
+  }
+]

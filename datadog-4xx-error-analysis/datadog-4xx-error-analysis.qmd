@@ -1,0 +1,315 @@
+---
+title: "Datadog 4XX Error Analysis"
+subtitle: "4XX error patterns by subdomain — identifying problematic integrations and workflows"
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    theme: cosmo
+    page-layout: full
+    grid:
+      body-width: 1800px
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<style>
+@media (min-width: 1200px) {
+  #quarto-content.page-columns {
+    display: grid !important;
+    grid-template-columns: 250px 1fr !important;
+    gap: 2em !important;
+  }
+  #quarto-sidebar {
+    grid-column: 1 !important;
+    position: sticky !important;
+    top: 1rem !important;
+    height: fit-content !important;
+  }
+  #quarto-document-content {
+    grid-column: 2 !important;
+    max-width: 100% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  #quarto-content.page-columns { display: block !important; }
+  #quarto-sidebar {
+    position: relative !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+    border-bottom: 1px solid #ddd !important;
+    padding-bottom: 1rem !important;
+  }
+  #quarto-sidebar nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem 1.5rem !important;
+  }
+  #quarto-sidebar nav ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem 1.5rem !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+  }
+  #quarto-document-content { max-width: 100% !important; }
+}
+@media (max-width: 767px) {
+  #quarto-sidebar { display: none !important; }
+  #quarto-document-content { max-width: 100% !important; }
+}
+.column-body { max-width: 100% !important; }
+div.cell-output-display { width: 100% !important; }
+
+.filter-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+  align-items: flex-end !important;
+  margin-bottom: 1rem !important;
+}
+.filter-row > div {
+  flex: 0 0 auto !important;
+  min-width: 100px !important;
+}
+.filter-row form { margin: 0 !important; }
+</style>
+```
+
+```{ojs}
+//| echo: false
+
+summary = FileAttachment("data/agg_summary.csv").csv({typed: true})
+urls = FileAttachment("data/agg_urls.csv").csv({typed: true})
+methods = FileAttachment("data/agg_methods.csv").csv({typed: true})
+```
+
+## Executive Summary
+
+Analysis of 4XX HTTP errors across customer subdomains to identify broken integrations, permission failures, and rate-limiting hotspots.
+
+```{ojs}
+//| echo: false
+
+totalErrors = d3.sum(summary, d => d.count)
+subdomains = [...new Set(summary.map(d => d.subdomain))]
+
+md`
+| Metric | Value |
+|--------|-------|
+| **Total 4XX errors (2 days)** | ${totalErrors.toLocaleString()} |
+| **Subdomains analyzed** | ${subdomains.join(", ")} |`
+```
+
+**Download data:** [Summary (CSV)](data/agg_summary.csv) | [URLs (CSV)](data/agg_urls.csv) | [Methods (CSV)](data/agg_methods.csv)
+
+
+## Errors by Status Code
+
+```{ojs}
+//| echo: false
+
+viewof selectedSubdomain = Inputs.select(["All", ...subdomains], {label: "Subdomain", value: "All"})
+```
+
+```{ojs}
+//| echo: false
+
+filtered = selectedSubdomain === "All" ? summary : summary.filter(d => d.subdomain === selectedSubdomain)
+
+// Aggregate by status code across selected subdomains
+statusAgg = Array.from(
+  d3.rollup(filtered, v => d3.sum(v, d => d.count), d => d.status_code),
+  ([status_code, count]) => ({status_code: String(status_code), count})
+)
+
+Plot.plot({
+  height: 350,
+  marginLeft: 60,
+  marginRight: 80,
+  x: {label: "Error Count"},
+  y: {label: "Status Code"},
+  marks: [
+    Plot.barX(statusAgg, {
+      y: "status_code",
+      x: "count",
+      fill: "status_code",
+      sort: {y: "-x"}
+    }),
+    Plot.text(statusAgg, {
+      y: "status_code",
+      x: "count",
+      text: d => d.count.toLocaleString(),
+      dx: 5,
+      textAnchor: "start"
+    }),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+
+## Errors by Subdomain
+
+```{ojs}
+//| echo: false
+
+subdomainAgg = Array.from(
+  d3.rollup(summary, v => d3.sum(v, d => d.count), d => d.subdomain),
+  ([subdomain, count]) => ({subdomain, count})
+)
+
+Plot.plot({
+  height: 250,
+  marginLeft: 120,
+  marginRight: 80,
+  x: {label: "Error Count"},
+  y: {label: null},
+  marks: [
+    Plot.barX(subdomainAgg, {
+      y: "subdomain",
+      x: "count",
+      fill: "subdomain",
+      sort: {y: "-x"}
+    }),
+    Plot.text(subdomainAgg, {
+      y: "subdomain",
+      x: "count",
+      text: d => d.count.toLocaleString(),
+      dx: 5,
+      textAnchor: "start"
+    }),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+
+## Errors by HTTP Method
+
+```{ojs}
+//| echo: false
+
+filteredMethods = selectedSubdomain === "All" ? methods : methods.filter(d => d.subdomain === selectedSubdomain)
+
+methodAgg = Array.from(
+  d3.rollup(filteredMethods, v => d3.sum(v, d => d.count), d => d.method),
+  ([method, count]) => ({method, count})
+)
+
+Plot.plot({
+  height: 250,
+  marginLeft: 80,
+  marginRight: 80,
+  x: {label: "Error Count"},
+  y: {label: null},
+  marks: [
+    Plot.barX(methodAgg, {
+      y: "method",
+      x: "count",
+      fill: "method",
+      sort: {y: "-x"}
+    }),
+    Plot.text(methodAgg, {
+      y: "method",
+      x: "count",
+      text: d => d.count.toLocaleString(),
+      dx: 5,
+      textAnchor: "start"
+    }),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+
+## Top Failing Endpoints
+
+```{ojs}
+//| echo: false
+
+filteredUrls = selectedSubdomain === "All" ? urls : urls.filter(d => d.subdomain === selectedSubdomain)
+topUrls = filteredUrls.sort((a, b) => b.count - a.count).slice(0, 25)
+
+// Shorten URLs for display
+shortenUrl = (url) => {
+  try {
+    const u = new URL(url)
+    return u.pathname
+  } catch {
+    return url.length > 80 ? url.slice(0, 77) + "..." : url
+  }
+}
+
+Plot.plot({
+  height: Math.max(400, topUrls.length * 28),
+  marginLeft: 400,
+  marginRight: 80,
+  x: {label: "Error Count"},
+  y: {label: null},
+  marks: [
+    Plot.barX(topUrls, {
+      y: d => shortenUrl(d.url),
+      x: "count",
+      fill: "subdomain",
+      sort: {y: "-x"}
+    }),
+    Plot.text(topUrls, {
+      y: d => shortenUrl(d.url),
+      x: "count",
+      text: d => d.count.toLocaleString(),
+      dx: 5,
+      textAnchor: "start"
+    }),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+
+## Detail Tables
+
+### Status Codes
+
+```{ojs}
+//| echo: false
+
+Inputs.table(summary, {
+  sort: "count",
+  reverse: true,
+  rows: 25
+})
+```
+
+### Top URLs
+
+```{ojs}
+//| echo: false
+
+Inputs.table(filteredUrls, {
+  sort: "count",
+  reverse: true,
+  rows: 30
+})
+```
+
+
+## Methodology
+
+### Data Sources
+
+| Source | Description |
+|--------|-------------|
+| Datadog Logs | `pup logs aggregate` — 4XX error counts by status code, URL, and HTTP method per subdomain |
+
+### Limitations
+
+1. Data covers a 2-day rolling window; long-term trends require repeated collection
+2. URL grouping is limited to top 50 endpoints per subdomain per query
+3. Log message details require individual log searches (not captured in aggregations)

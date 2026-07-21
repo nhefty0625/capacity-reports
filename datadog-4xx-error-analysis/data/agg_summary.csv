@@ -1,0 +1,16 @@
+subdomain,status_code,count
+fyidocs,400,39
+fyidocs,403,11336
+fyidocs,404,235
+fyidocs,409,49
+fyidocs,422,125
+fyidocs,429,10224
+halodoc,400,6
+halodoc,401,2
+halodoc,403,1546
+halodoc,404,1606
+halodoc,409,941
+halodoc,422,53
+halodoc,429,2585
+halodoc,460,16
+halodoc,499,1

@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: docs
-  resources: []
+  resources:
+    - "customer-rate-limit-report/data/*.csv"
+    - "datadog-4xx-error-analysis/data/*.csv"
 
 execute:
   freeze: auto
@@ -18,3 +20,7 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: customer-rate-limit-report/customer-rate-limit-report.qmd
+        text: Customer Rate Limit Report
+      - href: datadog-4xx-error-analysis/datadog-4xx-error-analysis.qmd
+        text: Datadog 4XX Error Analysis

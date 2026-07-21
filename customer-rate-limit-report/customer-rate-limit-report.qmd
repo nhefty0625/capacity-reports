@@ -1,0 +1,230 @@
+---
+title: "Customer Rate Limit Report"
+subtitle: "Analysis of customer rate limiting patterns and trends"
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    theme: cosmo
+    page-layout: full
+    grid:
+      body-width: 1800px
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<style>
+@media (min-width: 1200px) {
+  #quarto-content.page-columns {
+    display: grid !important;
+    grid-template-columns: 250px 1fr !important;
+    gap: 2em !important;
+  }
+  #quarto-sidebar {
+    grid-column: 1 !important;
+    position: sticky !important;
+    top: 1rem !important;
+    height: fit-content !important;
+  }
+  #quarto-document-content {
+    grid-column: 2 !important;
+    max-width: 100% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  #quarto-content.page-columns { display: block !important; }
+  #quarto-sidebar {
+    position: relative !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+    border-bottom: 1px solid #ddd !important;
+    padding-bottom: 1rem !important;
+  }
+  #quarto-sidebar nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem 1.5rem !important;
+  }
+  #quarto-sidebar nav ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem 1.5rem !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+  }
+  #quarto-document-content { max-width: 100% !important; }
+}
+@media (max-width: 767px) {
+  #quarto-sidebar { display: none !important; }
+  #quarto-document-content { max-width: 100% !important; }
+}
+.column-body { max-width: 100% !important; }
+div.cell-output-display { width: 100% !important; }
+
+.filter-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+  align-items: flex-end !important;
+  margin-bottom: 1rem !important;
+}
+.filter-row > div {
+  flex: 0 0 auto !important;
+  min-width: 100px !important;
+}
+.filter-row form { margin: 0 !important; }
+</style>
+```
+
+```{ojs}
+//| echo: false
+
+// Load data from SQL pipeline outputs
+summary = FileAttachment("data/agg_summary.csv").csv({typed: true})
+detailRaw = FileAttachment("data/agg_detail.csv").csv()
+detail = detailRaw.map(d => ({
+  ...d,
+  tickets_update_limit: +d.tickets_update_limit,
+  tickets_update_used: +d.tickets_update_used,
+  errors_429_count: +d.errors_429_count
+}))
+```
+
+## Executive Summary
+
+Customers with ticket update limits below 5,000 who are actively hitting rate limits (HTTP 429 errors). Filtered to accounts created before July 2019 with more than 300 ticket updates used.
+
+```{ojs}
+//| echo: false
+
+totalAccounts = detail.length
+total429Errors = d3.sum(detail, d => d.errors_429_count)
+avgTicketsUsed = Math.round(d3.mean(detail, d => d.tickets_update_used))
+
+md`
+| Metric | Value |
+|--------|-------|
+| **Accounts affected** | ${totalAccounts.toLocaleString()} |
+| **Total 429 errors** | ${total429Errors.toLocaleString()} |
+| **Avg tickets used** | ${avgTicketsUsed.toLocaleString()} |`
+```
+
+**Download data:** [Summary (CSV)](data/agg_summary.csv) | [Detail (CSV)](data/agg_detail.csv)
+
+
+## Accounts by Rate Limit Tier
+
+```{ojs}
+//| echo: false
+
+Plot.plot({
+  height: 350,
+  marginLeft: 200,
+  marginRight: 80,
+  x: {label: "Number of Accounts"},
+  y: {label: null},
+  marks: [
+    Plot.barX(summary, {
+      y: "category",
+      x: "count",
+      fill: "category",
+      sort: {y: "-x"}
+    }),
+    Plot.text(summary, {
+      y: "category",
+      x: "count",
+      text: d => d.count.toLocaleString(),
+      dx: 5,
+      textAnchor: "start"
+    }),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+## 429 Errors by Limit Tier
+
+```{ojs}
+//| echo: false
+
+Plot.plot({
+  height: 350,
+  marginLeft: 200,
+  marginRight: 80,
+  x: {label: "Total 429 Errors"},
+  y: {label: null},
+  marks: [
+    Plot.barX(summary, {
+      y: "category",
+      x: "total_429_errors",
+      fill: "category",
+      sort: {y: "-x"}
+    }),
+    Plot.text(summary, {
+      y: "category",
+      x: "total_429_errors",
+      text: d => d.total_429_errors.toLocaleString(),
+      dx: 5,
+      textAnchor: "start"
+    }),
+    Plot.ruleX([0])
+  ]
+})
+```
+
+
+## Account Details
+
+```{ojs}
+//| echo: false
+
+Inputs.table(detail, {
+  format: {
+    instance_account_id: x => x
+  },
+  columns: [
+    "instance_account_id",
+    "instance_account_name",
+    "tickets_update_limit",
+    "tickets_update_used",
+    "errors_429_count"
+  ],
+  header: {
+    instance_account_id: "Account ID",
+    instance_account_name: "Account Name",
+    tickets_update_limit: "Update Limit",
+    tickets_update_used: "Updates Used",
+    errors_429_count: "429 Errors"
+  },
+  format: {
+    instance_account_id: x => x
+  },
+  sort: "errors_429_count",
+  reverse: true,
+  rows: 25
+})
+```
+
+
+## Methodology
+
+### Data Sources
+
+| Source | Description |
+|--------|-------------|
+| `FACT_CAPACITY_AGGREGATED_API_USAGE_DATA_DAILY_SNAPSHOT` | Daily API usage with rate limit and 429 error counts |
+| `BASE_INSTANCE_ACCOUNTS` | Account metadata (name, creation date) |
+
+### Filters
+
+- Accounts created before **2019-07-01**
+- Ticket update limit **< 5,000**
+- Ticket updates used **> 300**
+- At least **1** HTTP 429 error
+- One row per account (highest 429 error count)

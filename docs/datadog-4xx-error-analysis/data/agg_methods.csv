@@ -1,0 +1,8 @@
+subdomain,method,count
+fyidocs,GET,10124
+fyidocs,POST,258
+fyidocs,PUT,11623
+halodoc,DELETE,1
+halodoc,GET,6011
+halodoc,POST,278
+halodoc,PUT,465
