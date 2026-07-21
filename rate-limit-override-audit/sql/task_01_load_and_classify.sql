@@ -52,6 +52,7 @@ SELECT
     COALESCE(f.has_hvapi, 0) AS has_hvapi,
     COALESCE(f.support_plan, 'Unknown') AS support_plan,
     aa.ARR,
+    aa.IS_PREMIER,
     aa.AGENT_COUNT,
     r.CONTRACT_RENEWAL_DATE,
     CASE WHEN s.INSTANCE_ACCOUNT_ID IS NOT NULL THEN 1 ELSE 0 END AS is_sandbox,

@@ -137,12 +137,24 @@ viewof highFilter = Inputs.select(
   {label: "Filter by plan tier:", value: "All"}
 )
 
-filteredHigh = highFilter === "All" ? highData : highData.filter(d => d.plan_tier === highFilter)
+viewof premierFilter = Inputs.select(
+  ["All", "Premier", "Non-Premier"],
+  {label: "Premier support:", value: "All"}
+)
+
+filteredHigh = highData.filter(d => {
+  const tierMatch = highFilter === "All" || d.plan_tier === highFilter;
+  const premierMatch = premierFilter === "All"
+    || (premierFilter === "Premier" && String(d.IS_PREMIER).toLowerCase() === "true")
+    || (premierFilter === "Non-Premier" && String(d.IS_PREMIER).toLowerCase() !== "true");
+  return tierMatch && premierMatch;
+})
 
 Inputs.table(filteredHigh, {
   columns: [
     "INSTANCE_ACCOUNT_SUBDOMAIN",
     "plan_tier",
+    "IS_PREMIER",
     "ARR",
     "AGENT_COUNT",
     "CONTRACT_RENEWAL_DATE",
@@ -156,6 +168,7 @@ Inputs.table(filteredHigh, {
   header: {
     INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
     plan_tier: "Plan Tier",
+    IS_PREMIER: "Premier",
     ARR: "ARR ($)",
     AGENT_COUNT: "Agents",
     CONTRACT_RENEWAL_DATE: "Renewal Date",
@@ -168,7 +181,8 @@ Inputs.table(filteredHigh, {
   },
   format: {
     ARR: x => x ? `$${Math.round(x).toLocaleString()}` : "",
-    AGENT_COUNT: x => x ? x.toLocaleString() : ""
+    AGENT_COUNT: x => x ? x.toLocaleString() : "",
+    IS_PREMIER: x => String(x).toLowerCase() === "true" ? "Yes" : "No"
   },
   sort: "SUBSCRIPTION_RATE_LIMIT",
   reverse: true,
@@ -184,10 +198,22 @@ Accounts at **HVAPI standard** limits (2500 RPM global or 300 ticket threshold) 
 ```{ojs}
 //| echo: false
 
-Inputs.table(mediumData, {
+viewof mediumPremierFilter = Inputs.select(
+  ["All", "Premier", "Non-Premier"],
+  {label: "Premier support:", value: "All"}
+)
+
+filteredMedium = mediumData.filter(d => {
+  if (mediumPremierFilter === "All") return true;
+  if (mediumPremierFilter === "Premier") return String(d.IS_PREMIER).toLowerCase() === "true";
+  return String(d.IS_PREMIER).toLowerCase() !== "true";
+})
+
+Inputs.table(filteredMedium, {
   columns: [
     "INSTANCE_ACCOUNT_SUBDOMAIN",
     "plan_tier",
+    "IS_PREMIER",
     "ARR",
     "AGENT_COUNT",
     "CONTRACT_RENEWAL_DATE",
@@ -201,6 +227,7 @@ Inputs.table(mediumData, {
   header: {
     INSTANCE_ACCOUNT_SUBDOMAIN: "Subdomain",
     plan_tier: "Plan Tier",
+    IS_PREMIER: "Premier",
     ARR: "ARR ($)",
     AGENT_COUNT: "Agents",
     CONTRACT_RENEWAL_DATE: "Renewal Date",
@@ -213,7 +240,8 @@ Inputs.table(mediumData, {
   },
   format: {
     ARR: x => x ? `$${Math.round(x).toLocaleString()}` : "",
-    AGENT_COUNT: x => x ? x.toLocaleString() : ""
+    AGENT_COUNT: x => x ? x.toLocaleString() : "",
+    IS_PREMIER: x => String(x).toLowerCase() === "true" ? "Yes" : "No"
   },
   sort: "SUBSCRIPTION_RATE_LIMIT",
   reverse: true,
