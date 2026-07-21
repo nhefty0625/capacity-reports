@@ -11,6 +11,11 @@ CREATE TABLE raw_products AS
 SELECT *
 FROM read_csv_auto('data/product_features.csv', header=true);
 
+-- Load contract renewal dates
+CREATE TABLE raw_renewals AS
+SELECT *
+FROM read_csv_auto('data/renewal_dates.csv', header=true);
+
 -- Load sandbox flags
 CREATE TABLE raw_sandboxes AS
 SELECT *
@@ -41,6 +46,7 @@ SELECT
     e.ERRORS_429_COUNT,
     COALESCE(f.has_hvapi, 0) AS has_hvapi,
     COALESCE(f.support_plan, 'Unknown') AS support_plan,
+    r.CONTRACT_RENEWAL_DATE,
     CASE WHEN s.INSTANCE_ACCOUNT_ID IS NOT NULL THEN 1 ELSE 0 END AS is_sandbox,
     CASE
         WHEN f.has_hvapi = 1 THEN 'Enterprise (HVAPI)'
@@ -67,6 +73,7 @@ SELECT
     END AS concern_level
 FROM raw_elevated e
 LEFT JOIN account_features f ON e.INSTANCE_ACCOUNT_ID = f.INSTANCE_ACCOUNT_ID
+LEFT JOIN raw_renewals r ON e.INSTANCE_ACCOUNT_ID = r.INSTANCE_ACCOUNT_ID
 LEFT JOIN raw_sandboxes s ON e.INSTANCE_ACCOUNT_ID = s.INSTANCE_ACCOUNT_ID;
 
 -- Summary by concern level and plan tier (non-sandbox)
